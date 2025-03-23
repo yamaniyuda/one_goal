@@ -16,8 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
             appBar: AppBar(
                 title: const Text('Main Screen'),
             ),
-            body: const Center(
-                child: Text('Main Screen'),
+            body:  Column(
+
+                children: <Widget>[
+                    Text('Home Screen'),
+                    
+                ],
             ),
         );
     }
