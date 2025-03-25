@@ -69,31 +69,29 @@ class OnboardingPages extends StatelessWidget {
     
   }
 
-  Widget buildTitle(List<OnboardingPageTitle> title) {
-    return RichText(
-      text: TextSpan(
-        children: title
-            .map(
-              (text) => TextSpan(
-                text: text.text,
-                style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 24,
-                        color: Color(0XFF000000),
-                        overflow: TextOverflow.ellipsis,)
-                        ,
-              ),
-            )
-            .toList(),
-      ),
+  Widget buildTitle(String title) {
+    return Text(
+      softWrap: true,
+      title,
+      style: TextStyle(
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w700,
+        fontSize: 24,
+        color: Color(0XFF000000),
+        overflow: TextOverflow.ellipsis,
+        ),
       textAlign: TextAlign.center,
-    );
+      
+    ); 
+    
+    
   }
 
   Widget buildDescription(String description) {
     return Text(
       description,
+      softWrap: true,
+      overflow: TextOverflow.visible,
       style: TextStyle(
       fontFamily: 'Poppins',
       fontWeight: FontWeight.w400,

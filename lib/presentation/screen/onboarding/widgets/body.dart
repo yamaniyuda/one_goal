@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:one_goal/data/data.dart';
 import 'package:go_router/go_router.dart';
 import 'package:one_goal/presentation/screen/onboarding/models/onboarding_page_model.dart';
 
@@ -10,61 +9,22 @@ import 'onboarding_pages.dart';
 
 final List<OnboardingPageModel> onboardingPages = [
   OnboardingPageModel(
-    title: [
-      OnboardingPageTitle(
-        text: 'SS collection of\n',
-        color: Color(0XFF000000),
-      ),
-      OnboardingPageTitle(
-        text: 'indoor & outdoor ',
-        color: Color(0xFF4B8E4B),
-      ),
-      OnboardingPageTitle(
-        text: 'plants',
-        color: Color(0xFF4B8E4B),
-      ),
-    ],
+    title: 'Selamat datang di One Goal',
     description:
-        'Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Fringilla in sed risus sit.',
+        'Platform donasi dan penggalangan dana untuk membantu mewujudkan harapan dan meringankan beban sesama.',
+    image: 'assets/images/onboarding/onboarding45.png',
+  ),
+  OnboardingPageModel(
+    title: "Sekecil Apapun, Tetap Berarti",
+    description:
+        'Bantuan Anda bisa menjadi harapan bagi mereka yang kesulitan. Mari saling berbagi dan peduli.',
     image: 'assets/images/onboarding/onboarding1.png',
   ),
   OnboardingPageModel(
-    title: [
-      OnboardingPageTitle(
-        text: 'Keep your \n',
-        color: Color(0XFF000000),
-      ),
-      OnboardingPageTitle(
-        text: 'plants ',
-        color: Color(0XFF000000),
-      ),
-      OnboardingPageTitle(
-        text: 'alive',
-        color: Color(0xFF4B8E4B),
-      ),
-    ],
+    title: 'Bersama, Kita Bisa',
     description:
-        'Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Fringilla in sed risus sit.',
-    image: 'assets/images/onboarding/onboarding2.png',
-  ),
-  OnboardingPageModel(
-    title: [
-      OnboardingPageTitle(
-        text: 'Plan a tree &\n',
-        color: Color(0XFF000000),
-      ),
-      OnboardingPageTitle(
-        text: 'green the ',
-        color: Color(0XFF000000),
-      ),
-      OnboardingPageTitle(
-        text: 'earth',
-        color: Color(0xFF4B8E4B),
-      ),
-    ],
-    description:
-        'Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Fringilla in sed risus sit.',
-    image: 'assets/images/onboarding/onboarding3.png',
+        'Satu aksi kebaikan dapat mengubah hidup seseorang. Yuk, ulurkan tangan untuk mereka yang membutuhkan.',
+    image: 'assets/images/onboarding/onboarding21.png',
   ),
 ];
 

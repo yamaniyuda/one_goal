@@ -1,27 +1,5 @@
 import 'package:flutter/material.dart';
 
-class BtnTheme {
-  static ButtonStyle primaryBtn({required EdgeInsets? padding}) {
-    return ButtonStyle(
-      backgroundColor: WidgetStateProperty.all(Color(0xFF4B8E4B)),
-      foregroundColor: WidgetStateProperty.all(Color(0XFFFFFFFF)),
-      textStyle: WidgetStateProperty.all(
-        TextStyle(
-          fontFamily: "Poppins",
-          fontWeight: FontWeight.w400,
-          fontSize: 16,
-        ),
-      ),
-      padding: WidgetStateProperty.all(padding),
-      shape: WidgetStateProperty.all(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
-  }
-}
-
 class OnboardingControls extends StatelessWidget {
   final bool isLastPage;
   final Function() onSkipPressed;
@@ -50,7 +28,7 @@ class OnboardingControls extends StatelessWidget {
               ),
             ),
             child: Text(
-              "Get Started",
+              "Masuk",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -79,7 +57,7 @@ class OnboardingControls extends StatelessWidget {
               ),
             ),
             child: Text(
-              "Next",
+              "Lanjutkan",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -89,19 +67,24 @@ class OnboardingControls extends StatelessWidget {
           ),
         ),
         SizedBox(height: 3),
-        TextButton(
-          onPressed: onSkipPressed,
-          child: Text(
-            'Skip',
-            style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: Color(0XFF0E110E),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-          ),
-        ),
+        
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.9, // Tombol penuh mengikuti ukuran layar
+          child: OutlinedButton(
+                onPressed: onSkipPressed,
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Color(0xFF567CBD)), // Border biru
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: Text(
+                  "Skip",
+                  style: TextStyle(color: Colors.blue), // Teks juga berwarna biru
+                ),
+              ),
+        )
       
         
       ],
