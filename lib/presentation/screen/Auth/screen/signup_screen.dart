@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:one_goal/presentation/screen/auth/screen/sign_up.dart';
+// import 'package:one_goal/presentation/screen/auth/screen/sign_up.dart';
 
 
 class UpScreen extends StatefulWidget {
@@ -17,9 +17,9 @@ class _UpScreenState extends State<UpScreen> {
 
 
     final List<Widget> widgetOptions = [
-        CreateAccountPage(),
-        CreateAccountPage(),
-        CreateAccountPage()
+        // CreateAccountPage(),
+        // CreateAccountPage(),
+        // CreateAccountPage()
     ];
 
 

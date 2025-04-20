@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:one_goal/presentation/screen/auth/screen/sign_in.dart';
+// import 'package:one_goal/presentation/screen/auth/screen/sign_in.dart';
 
 
 class InScreen extends StatefulWidget {
@@ -17,9 +17,9 @@ class _InScreenState extends State<InScreen> {
 
 
     final List<Widget> widgetOptions = [
-        LoginScreen(),
-        LoginScreen(),
-        LoginScreen()
+        // LoginScreen(),
+        // LoginScreen(),
+        // LoginScreen()
     ];
 
 
