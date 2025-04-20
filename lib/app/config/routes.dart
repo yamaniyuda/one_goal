@@ -1,10 +1,12 @@
 import 'package:go_router/go_router.dart';
+import 'package:one_goal/presentation/screen/splash/screen/splash_screen.dart';
 import 'package:one_goal/presentation/screen/splash/spalsh.dart';
 import 'package:one_goal/presentation/screen/main/main.dart';
+import 'package:one_goal/presentation/screen/onboarding/screen/onboarding_screen.dart';
 import 'package:one_goal/presentation/screen/Auth/auth.dart';
 
 final router = GoRouter(
-    initialLocation: '/home',
+   initialLocation: '/splash',
     routes: [
         GoRoute(path: '/SignIn', builder: (context, state) => const InScreen()),
         GoRoute(path: '/SignUp', builder: (context, state) => const UpScreen()),
@@ -19,5 +21,6 @@ final router = GoRouter(
             },
         ),
         GoRoute(path: '/splash', builder: (context, state) => const SplashScreen()),
+        GoRoute(path: '/onboarding', builder: (context, state) => const OnboardingPage()),
     ],
 );
