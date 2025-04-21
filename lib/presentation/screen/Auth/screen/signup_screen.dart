@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:one_goal/presentation/screen/auth/screen/sign_up.dart';
+import 'package:one_goal/presentation/screen/Auth/auth.dart';
 
 
 class UpScreen extends StatefulWidget {
@@ -33,16 +33,7 @@ class _UpScreenState extends State<UpScreen> {
     @override
     Widget build(BuildContext context) {
         return Scaffold(
-            body: widgetOptions.elementAt(_selectedIndex),
-            bottomNavigationBar: BottomNavigationBar(
-                currentIndex: _selectedIndex,
-                onTap: _onItemTapped,
-                items: const <BottomNavigationBarItem> [
-                    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-                    BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Tambah'),
-                    BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Akun'),
-                ],
-            ),
+            body: CreateAccountPage()
         );
     }
 }

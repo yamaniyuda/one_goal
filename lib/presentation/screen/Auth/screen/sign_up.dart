@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
@@ -121,7 +122,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     ElevatedButton(
                       onPressed: isAgreed
                           ? () {
-                              // Handle sign-up logic
+                              context.replace('/home');
                             }
                           : null,
                       style: ElevatedButton.styleFrom(
@@ -147,14 +148,15 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     Center(
                       child: GestureDetector(
                         onTap: () {
-                          // Navigate to Sign In page
+                          context.replace('/SignIn');
                         },
                         child: const Text(
                           'Already have an account? Sign in from here',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 15,
                             color: Color(0xFF567CBD),
                             fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
                       ),
