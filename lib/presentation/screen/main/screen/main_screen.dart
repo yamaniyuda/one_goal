@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:one_goal/presentation/screen/main/main.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/icon_park_twotone.dart';
-import 'package:one_goal/presentation/screen/main/screen/search_screen.dart';
 
 
 class MainScreen extends StatefulWidget {

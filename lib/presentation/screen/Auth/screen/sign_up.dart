@@ -152,7 +152,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         },
                         child: const Text(
                           'Already have an account? Sign in from here',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 15,
                             color: Color(0xFF567CBD),
                             fontWeight: FontWeight.w700,
@@ -176,8 +176,7 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final bool isPassword;
 
-  const CustomTextField({required this.label, this.isPassword = false, Key? key})
-      : super(key: key);
+  const CustomTextField({required this.label, this.isPassword = false, super.key});
 
   @override
   Widget build(BuildContext context) {

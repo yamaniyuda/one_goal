@@ -62,6 +62,6 @@ class _CardVideoState extends State<CardVideo> {
                     ],
                 )
             ),
-        );;
+        );
     }
 }

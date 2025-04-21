@@ -6,6 +6,7 @@ import 'package:one_goal/presentation/screen/main/widget/category_list.dart';
 import 'package:one_goal/presentation/screen/main/widget/populer_content.dart';
 import 'package:one_goal/presentation/screen/main/widget/post_content_video.dart';
 import 'package:one_goal/presentation/screen/main/widget/post_content.dart';
+import 'package:one_goal/presentation/screen/main/widget/home_donation.dart';
 
 
 class HomeContent extends StatelessWidget {
@@ -39,7 +40,10 @@ class HomeContent extends StatelessWidget {
                             CategoryList(),
                             const SizedBox(height: 20),
                             PostContentVideo(),
-                            PostContent(),
+
+                            const SizedBox(height: 30),
+                            DonationList(),
+
                             const SizedBox(height: 100),
                         ],
                     ),
