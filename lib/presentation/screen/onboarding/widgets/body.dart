@@ -105,7 +105,7 @@ class _BodyState extends State<Body> {
   }
 
   _navigateToHomePage() {
-    context.go('/home');
+    context.go('/SignUp');
   }
 
   _onPageChanged(int index) {

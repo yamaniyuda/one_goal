@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
@@ -121,7 +122,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     ElevatedButton(
                       onPressed: isAgreed
                           ? () {
-                              // Handle sign-up logic
+                              context.replace('/home');
                             }
                           : null,
                       style: ElevatedButton.styleFrom(
@@ -147,7 +148,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     Center(
                       child: GestureDetector(
                         onTap: () {
-                          // Navigate to Sign In page
+                          context.replace('/SignIn');
                         },
                         child: const Text(
                           'Already have an account? Sign in from here',
@@ -155,6 +156,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                             fontSize: 15,
                             color: Color(0xFF567CBD),
                             fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
                       ),
@@ -174,8 +176,7 @@ class CustomTextField extends StatelessWidget {
   final String label;
   final bool isPassword;
 
-  const CustomTextField({required this.label, this.isPassword = false, Key? key})
-      : super(key: key);
+  const CustomTextField({required this.label, this.isPassword = false, super.key});
 
   @override
   Widget build(BuildContext context) {

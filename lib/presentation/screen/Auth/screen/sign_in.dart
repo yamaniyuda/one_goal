@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -209,6 +210,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   right: 51, // Added constraints
                   child: GestureDetector(
                     onTap: () {
+                      context.replace('/home');
                       // Handle sign-in logic here
                     },
                     child: Container(
@@ -223,6 +225,34 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Sign in',
                         style: TextStyle(
                           color: Color(0xFFF6F6F6),
+                          fontSize: 18,
+                          fontFamily: 'Inria Sans',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 51,
+                  top: 751,
+                  right: 51, // Added constraints
+                  child: GestureDetector(
+                    onTap: () {
+                      context.replace('/SignUp');
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 39,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(31.5),
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Create an account',
+                        style: TextStyle(
+                          color: Color(0xFF567CBD),
                           fontSize: 18,
                           fontFamily: 'Inria Sans',
                           fontWeight: FontWeight.w700,

@@ -20,6 +20,7 @@ class CategoryList extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                 Padding(
                     padding: const EdgeInsets.only(left: 20),
@@ -43,20 +44,20 @@ class CategoryList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                            const SizedBox(width: 20),
+                            const SizedBox(width: 25),
                             ...categories.map((category) => Padding(
-                                padding: const EdgeInsets.only(right: 20),
+                                padding: const EdgeInsets.only(right: 38),
                                 child: Column(
                                     children: [
                                         Image.asset(
                                             category.image,
-                                            width: 30,
-                                            height: 30,
+                                            width: 70,
+                                            height: 50,
                                         ),
-                                        const SizedBox(height: 5),
+                                        const SizedBox(height: 8),
                                         Text(
                                             category.name,
-                                            style: GoogleFonts.inter(fontSize: 14),
+                                            style: GoogleFonts.inter(fontSize: 19),
                                         ),
                                     ],
                                 ),

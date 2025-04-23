@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:one_goal/presentation/screen/main/main.dart';
 import 'package:one_goal/presentation/screen/main/widget/home_content.dart';
 import 'package:one_goal/presentation/screen/main/widget/home_header.dart';
 import 'package:one_goal/presentation/screen/main/widget/words_motivation.dart';
 import 'package:one_goal/presentation/widget/background/circle_background.dart';
-import 'package:one_goal/presentation/widget/widget.dart';
 
 
 
