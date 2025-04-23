@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:flutter/services.dart';
@@ -13,12 +14,32 @@ void main() {
     runApp(
 		MultiProvider(
 			providers: [
-				// Add your providers here
+				ChangeNotifierProvider(create: (_) => Counter()),
 			],
 			child: const MyApp(),
 		)
 	);
 }
+
+
+class Counter with ChangeNotifier, DiagnosticableTreeMixin {
+	int _count = 0;
+
+	int get count => _count;
+
+	void increment() {
+		_count++;
+		notifyListeners();
+	}
+
+	/// Makes `Counter` readable inside the devtools by listing all of its properties
+	@override
+	void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+		super.debugFillProperties(properties);
+		properties.add(IntProperty('count', count));
+	}
+}
+
 
 class MyApp extends StatelessWidget {
     const MyApp({super.key});

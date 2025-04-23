@@ -43,6 +43,7 @@ class HomeContent extends StatelessWidget {
 
                             const SizedBox(height: 30),
                             DonationList(),
+                            PostContent(),
 
                             const SizedBox(height: 100),
                         ],

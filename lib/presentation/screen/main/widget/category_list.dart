@@ -51,13 +51,13 @@ class CategoryList extends StatelessWidget {
                                     children: [
                                         Image.asset(
                                             category.image,
-                                            width: 70,
-                                            height: 50,
+                                            width: 30,
+                                            height: 30,
                                         ),
                                         const SizedBox(height: 8),
                                         Text(
                                             category.name,
-                                            style: GoogleFonts.inter(fontSize: 19),
+                                            style: GoogleFonts.inter(fontSize: 14),
                                         ),
                                     ],
                                 ),
