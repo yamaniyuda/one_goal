@@ -122,6 +122,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 }
 
 class SidebarMenu extends StatelessWidget {
+  const SidebarMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(

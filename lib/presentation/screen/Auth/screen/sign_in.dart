@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'auth_provider.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  bool _rememberMe = false;
-
-  @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthProvider>(context);
+
     return Scaffold(
       backgroundColor: const Color(0xFFF6F6F6),
       body: SingleChildScrollView(
@@ -25,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: IntrinsicHeight(
             child: Stack(
               children: [
-                // Background design
                 Positioned(
                   left: -49,
                   top: -293,
@@ -38,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                // Smaller decorative circles
                 Positioned(
                   left: 124,
                   top: 54,
@@ -63,7 +56,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                // Title and subtitle
                 Positioned(
                   left: 206,
                   top: 63,
@@ -90,13 +82,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                // Username field
                 Positioned(
                   left: 43,
                   top: 400,
-                  right: 43, // Added constraints
+                  right: 43,
                   child: TextField(
-                    controller: _usernameController,
+                    onChanged: authProvider.setUsername,
                     decoration: InputDecoration(
                       hintText: 'Username',
                       hintStyle: const TextStyle(
@@ -109,28 +100,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: const Color(0xFFF6F6F6),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF8DADE4),
-                        ),
+                        borderSide: const BorderSide(color: Color(0xFF8DADE4)),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF567CBD),
-                          width: 2,
-                        ),
+                        borderSide: const BorderSide(color: Color(0xFF567CBD), width: 2),
                       ),
                     ),
                   ),
                 ),
-                // Password field
                 Positioned(
                   left: 43,
                   top: 485,
-                  right: 43, // Added constraints
+                  right: 43,
                   child: TextField(
-                    controller: _passwordController,
                     obscureText: true,
+                    onChanged: authProvider.setPassword,
                     decoration: InputDecoration(
                       hintText: 'Password',
                       hintStyle: const TextStyle(
@@ -143,33 +128,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: const Color(0xFFF6F6F6),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF8DADE4),
-                        ),
+                        borderSide: const BorderSide(color: Color(0xFF8DADE4)),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: const BorderSide(
-                          color: Color(0xFF567CBD),
-                          width: 2,
-                        ),
+                        borderSide: const BorderSide(color: Color(0xFF567CBD), width: 2),
                       ),
                     ),
                   ),
                 ),
-                // Remember me checkbox
                 Positioned(
                   left: 51,
                   top: 551,
                   child: Row(
                     children: [
                       Checkbox(
-                        value: _rememberMe,
-                        onChanged: (value) {
-                          setState(() {
-                            _rememberMe = value!;
-                          });
-                        },
+                        value: authProvider.rememberMe,
+                        onChanged: (value) => authProvider.setRememberMe(value!),
                         activeColor: const Color(0xFF567CBD),
                       ),
                       const Text(
@@ -184,13 +159,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                 ),
-                // Forgot Password
                 Positioned(
                   left: 253,
                   top: 551,
                   child: GestureDetector(
                     onTap: () {
-                      // Handle forgot password action
+                      // Forgot password logic
                     },
                     child: const Text(
                       'Forgot Password?',
@@ -203,15 +177,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                // Sign in button
                 Positioned(
                   left: 51,
                   top: 701,
-                  right: 51, // Added constraints
+                  right: 51,
                   child: GestureDetector(
                     onTap: () {
-                      context.replace('/home');
-                      // Handle sign-in logic here
+                      if (authProvider.login()) {
+                        context.replace('/home');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Invalid credentials')),
+                        );
+                      }
                     },
                     child: Container(
                       width: double.infinity,
@@ -236,7 +214,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Positioned(
                   left: 51,
                   top: 751,
-                  right: 51, // Added constraints
+                  right: 51,
                   child: GestureDetector(
                     onTap: () {
                       context.replace('/SignUp');
@@ -267,12 +245,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _usernameController.dispose();
-    _passwordController.dispose();
-    super.dispose();
   }
 }

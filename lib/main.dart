@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:one_goal/app/config/routes.dart';
 import 'package:one_goal/app/config/theme.dart';
 import 'package:provider/provider.dart';
+import 'presentation/screen/Auth/screen/auth_provider.dart';
+
 
 void main() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -15,6 +17,7 @@ void main() {
 		MultiProvider(
 			providers: [
 				ChangeNotifierProvider(create: (_) => Counter()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
 			],
 			child: const MyApp(),
 		)
