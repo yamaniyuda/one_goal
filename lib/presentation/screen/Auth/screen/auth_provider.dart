@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AuthProvider with ChangeNotifier {
-  String _registeredUsername = '';
-  String _registeredEmail = '';
-  String _registeredPassword = '';
   bool _rememberMe = false;
-
   String _currentUsername = '';
   String _currentPassword = '';
+  
+  final Map<String, Map<String, String>> _registeredUsers = {
+    'admin': {'email': 'admin@example.com', 'password': 'password'},
+  };
 
   String get username => _currentUsername;
-  String get email => _registeredEmail;
-  String get password => _currentPassword;
   bool get rememberMe => _rememberMe;
 
   void setUsername(String username) {
@@ -30,14 +28,12 @@ class AuthProvider with ChangeNotifier {
   }
 
   bool login() {
-    if (_currentUsername == "admin" && _currentPassword == "password") {
-      return true;
+    if (_registeredUsers.containsKey(_currentUsername)) {
+      final user = _registeredUsers[_currentUsername]!;
+      if (user['password'] == _currentPassword) {
+        return true;
+      }
     }
-    
-    if (_currentUsername == _registeredUsername && _currentPassword == _registeredPassword) {
-      return true;
-    }
-
     return false;
   }
 
@@ -46,10 +42,18 @@ class AuthProvider with ChangeNotifier {
     required String email,
     required String password,
   }) {
-    _registeredUsername = username;
-    _registeredEmail = email;
-    _registeredPassword = password;
-
+    _registeredUsers[username] = {
+      'email': email,
+      'password': password,
+    };
     notifyListeners();
+  }
+
+  bool isUsernameTaken(String username) {
+    return _registeredUsers.containsKey(username);
+  }
+
+  String? getEmailForUser(String username) {
+    return _registeredUsers[username]?['email'];
   }
 }

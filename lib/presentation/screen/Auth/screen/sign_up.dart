@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'auth_provider.dart';
+import 'textfield.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
@@ -57,56 +58,59 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height,
           color: const Color(0xFFF6F6F6),
-          child: Stack(
+          child: Column(
             children: [
-              Positioned(
-                left: -49,
-                top: -293,
-                child: Container(
-                  width: 492,
-                  height: 490,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xFF567CBD),
+              // Top decorative circle + logo
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: screenWidth,
+                    height: 250,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF567CBD),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(150),
+                        bottomRight: Radius.circular(150),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 124,
-                top: 54,
-                child: CircleAvatar(radius: 18.5, backgroundColor: Colors.white),
-              ),
-              Positioned(
-                left: 161,
-                top: 54,
-                child: CircleAvatar(
-                  radius: 18.5,
-                  backgroundColor: Colors.white.withOpacity(0.5),
-                ),
-              ),
-              Positioned(
-                left: 206,
-                top: 63,
-                child: const Text(
-                  'OneGoal',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                    fontFamily: 'Inria Sans',
-                    fontWeight: FontWeight.w700,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(radius: 18.5, backgroundColor: Colors.white),
+                      const SizedBox(width: 10),
+                      CircleAvatar(
+                        radius: 18.5,
+                        backgroundColor: Colors.white.withOpacity(0.5),
+                      ),
+                      const SizedBox(width: 10),
+                      const Text(
+                        'OneGoal',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Inria Sans',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                top: 280,
-                left: 42,
-                right: 42,
+
+              const SizedBox(height: 30),
+
+              // Form content under the circle
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -150,17 +154,18 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: isAgreed ? () => _submitSignUp(context) : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: isAgreed ? const Color(0xFF567CBD) : Colors.grey,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(31.5),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: isAgreed ? () => _submitSignUp(context) : null,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: isAgreed ? const Color(0xFF567CBD) : Colors.grey,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(31.5),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                         ),
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
-                      child: const Center(
-                        child: Text(
+                        child: const Text(
                           'Sign Up',
                           style: TextStyle(
                             fontSize: 18,
@@ -187,6 +192,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 30),
                   ],
                 ),
               ),
@@ -198,35 +204,3 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   }
 }
 
-class CustomTextField extends StatelessWidget {
-  final String label;
-  final bool isPassword;
-  final TextEditingController controller;
-
-  const CustomTextField({
-    required this.label,
-    this.isPassword = false,
-    required this.controller,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      obscureText: isPassword,
-      decoration: InputDecoration(
-        labelText: label,
-        hintText: 'Enter $label',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xFF8DADE4)),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-      ),
-    );
-  }
-}
