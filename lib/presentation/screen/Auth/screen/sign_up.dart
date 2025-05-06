@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'auth_provider.dart';
+import 'textfield.dart';
 
 class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
@@ -11,70 +14,103 @@ class CreateAccountPage extends StatefulWidget {
 class _CreateAccountPageState extends State<CreateAccountPage> {
   bool isAgreed = false;
 
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+
   void toggleCheckbox(bool? value) {
     setState(() {
       isAgreed = value ?? false;
     });
   }
 
+  void _submitSignUp(BuildContext context) {
+    final username = _usernameController.text.trim();
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+    final confirmPassword = _confirmPasswordController.text.trim();
+
+    if (password != confirmPassword) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Passwords do not match')),
+      );
+      return;
+    }
+
+    context.read<AuthProvider>().signUp(
+          username: username,
+          email: email,
+          password: password,
+        );
+
+    context.replace('/home');
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height,
           color: const Color(0xFFF6F6F6),
-          child: Stack(
+          child: Column(
             children: [
-              // Background Circle Decoration
-              Positioned(
-                left: -49,
-                top: -293,
-                child: Container(
-                  width: 492,
-                  height: 490,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xFF567CBD),
+              // Top decorative circle + logo
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: screenWidth,
+                    height: 250,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF567CBD),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(150),
+                        bottomRight: Radius.circular(150),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              // "OneGoal" Logo and Circles
-              Positioned(
-                left: 124,
-                top: 54,
-                child: CircleAvatar(
-                  radius: 18.5,
-                  backgroundColor: Colors.white,
-                ),
-              ),
-              Positioned(
-                left: 161,
-                top: 54,
-                child: CircleAvatar(
-                  radius: 18.5,
-                  backgroundColor: Colors.white.withOpacity(0.5),
-                ),
-              ),
-              Positioned(
-                left: 206,
-                top: 63,
-                child: const Text(
-                  'OneGoal',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                    fontFamily: 'Inria Sans',
-                    fontWeight: FontWeight.w700,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(radius: 18.5, backgroundColor: Colors.white),
+                      const SizedBox(width: 10),
+                      CircleAvatar(
+                        radius: 18.5,
+                        backgroundColor: Colors.white.withOpacity(0.5),
+                      ),
+                      const SizedBox(width: 10),
+                      const Text(
+                        'OneGoal',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Inria Sans',
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                ],
               ),
-              // Form Fields
-              Positioned(
-                top: 280,
-                left: 42,
-                right: 42,
+
+              const SizedBox(height: 30),
+
+              // Form content under the circle
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -87,13 +123,13 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const CustomTextField(label: 'Username'),
+                    CustomTextField(label: 'Username', controller: _usernameController),
                     const SizedBox(height: 16),
-                    const CustomTextField(label: 'Email'),
+                    CustomTextField(label: 'Email', controller: _emailController),
                     const SizedBox(height: 16),
-                    const CustomTextField(label: 'Password', isPassword: true),
+                    CustomTextField(label: 'Password', controller: _passwordController, isPassword: true),
                     const SizedBox(height: 16),
-                    const CustomTextField(label: 'Confirm Password', isPassword: true),
+                    CustomTextField(label: 'Confirm Password', controller: _confirmPasswordController, isPassword: true),
                     const SizedBox(height: 20),
                     Row(
                       children: [
@@ -105,36 +141,31 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                           ),
                           activeColor: const Color(0xFF567CBD),
                         ),
-                        Expanded(
+                        const Expanded(
                           child: Text(
                             'I agree to the Terms and Conditions',
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
                               color: Color(0xFF567CBD),
                               fontWeight: FontWeight.w700,
                             ),
-                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: isAgreed
-                          ? () {
-                              context.replace('/home');
-                            }
-                          : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            isAgreed ? const Color(0xFF567CBD) : Colors.grey,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(31.5),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: isAgreed ? () => _submitSignUp(context) : null,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: isAgreed ? const Color(0xFF567CBD) : Colors.grey,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(31.5),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                         ),
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
-                      child: const Center(
-                        child: Text(
+                        child: const Text(
                           'Sign Up',
                           style: TextStyle(
                             fontSize: 18,
@@ -161,6 +192,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 30),
                   ],
                 ),
               ),
@@ -172,28 +204,3 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   }
 }
 
-class CustomTextField extends StatelessWidget {
-  final String label;
-  final bool isPassword;
-
-  const CustomTextField({required this.label, this.isPassword = false, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      obscureText: isPassword,
-      decoration: InputDecoration(
-        labelText: label,
-        hintText: 'Enter $label',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0xFF8DADE4)),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-      ),
-    );
-  }
-}

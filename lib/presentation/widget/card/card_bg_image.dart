@@ -56,7 +56,7 @@ class _CardBgImageState extends State<CardBgImage> {
                             value: 0.5,
                             backgroundColor: Colors.white.withValues(alpha: .3),
                             valueColor: AlwaysStoppedAnimation<Color>(
-                                Theme.of(context).primaryColor,
+                                Colors.white,
                             ),
                         ),
 

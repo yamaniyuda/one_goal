@@ -13,8 +13,6 @@ class MainScreen extends StatefulWidget {
 }
 
 
-
-
 class _MainScreenState extends State<MainScreen> {
     int _selectedIndex = 0;
     final PageController _pageController = PageController();
@@ -47,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
                             const SearchScreen(),
                             const AddPostScreen(),
                             const HistoryScreen(),
-                            const AccountScreen(),
+                            const ProfileScreen(),
                         ],
                     ),
                     Align(

@@ -28,7 +28,7 @@ class DonationCard extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.network(
+              child: Image.asset(
                 imageUrl,
                 width: 100,
                 height: 100,
@@ -116,35 +116,35 @@ class DonationList extends StatelessWidget {
       {
         'title': 'Bantuan Banjir Jakarta',
         'description': 'Bantu saudara kita yang terdampak banjir di Jakarta Selatan.',
-        'imageUrl': '/assets/post_3.png',
+        'imageUrl': 'assets/post_3.png',
         'amount': 'Rp 1.000.000',
         'progress': 0.5,
       },
       {
         'title': 'Peduli Pendidikan',
         'description': 'Dukung anak-anak kurang mampu agar bisa sekolah.',
-        'imageUrl': '/assets/pendidikan.jpg',
+        'imageUrl': 'assets/pendidikan.jpg',
         'amount': 'Rp 850.000',
         'progress': 0.34,
       },
       {
         'title': 'Bantu UMKM Bangkit',
         'description': 'Bantu pelaku usaha kecil menengah untuk pulih pasca pandemi.',
-        'imageUrl': '/assets/post_4.png',
+        'imageUrl': 'assets/post_4.png',
         'amount': 'Rp 1.200.000',
         'progress': 0.66,
       },
       {
         'title': 'Makanan untuk Dhuafa',
         'description': 'Sumbangkan makanan siap saji untuk kaum dhuafa.',
-        'imageUrl': '/assets/post_2.png',
+        'imageUrl': 'assets/post_2.png',
         'amount': 'Rp 400.000',
         'progress': 0.2,
       },
       {
         'title': 'Bantu Korban Gempa',
         'description': 'Donasi untuk korban gempa di wilayah timur Indonesia.',
-        'imageUrl': '/assets/post_6.png',
+        'imageUrl': 'assets/post_6.png',
         'amount': 'Rp 2.000.000',
         'progress': 0.75,
       },
