@@ -5,8 +5,9 @@ class CardBgImage extends StatefulWidget {
     final ImageProvider image;
     final double width;
     final double height;
+    final double progress;
 
-    const CardBgImage({super.key, required this.image, required this.width, required this.height});
+    const CardBgImage({super.key, required this.image, required this.width, required this.height, required this.progress});
 
     @override
     State<CardBgImage> createState() => _CardBgImageState();
@@ -36,7 +37,7 @@ class _CardBgImageState extends State<CardBgImage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                         Text(
-                            '50%',
+                            '${(widget.progress * 100).toStringAsFixed(0)}%',
                             style: GoogleFonts.inter(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
@@ -52,14 +53,20 @@ class _CardBgImageState extends State<CardBgImage> {
                             ),
                         ),
                         const SizedBox(height: 5),
-                        LinearProgressIndicator(
-                            value: 0.5,
-                            backgroundColor: Colors.white.withValues(alpha: .3),
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                                Colors.white,
+                        Positioned(
+                            left: 12,
+                            right: 12,
+                            bottom: 16,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(4),
+                                child: LinearProgressIndicator(
+                                    value: widget.progress,
+                                    minHeight: 6,
+                                    backgroundColor: Colors.white30,
+                                    color: Colors.white,
+                                ),
                             ),
                         ),
-
                     ],
                 ),
             ),

@@ -1,0 +1,32 @@
+{
+	"@@locale": "id",
+	"helloWorld": "Halo Dunia!",
+	"next": "Berikutnya",
+	"skip": "Lewati",
+	"enter": "Masuk",
+	"on_board_greeting_title_1": "Selamat Datang di One Goal",
+	"on_board_greeting_desc_1": "Platform donasi dan penggalangan dana untuk membantu mewujudkan harapan dan meringankan beban bersama",
+	"on_board_greeting_title_2": "Sekecil Apa Pun, Tetap Berarti",
+	"on_board_greeting_desc_2": "Bantuan Anda bisa menjadi harapan bagi mereka yang kesulitan. Mari berbagi dan peduli satu sama lain.",
+	"on_board_greeting_title_3": "Bersama, Kita Bisa",
+	"on_board_greeting_desc_3": "Satu tindakan kebaikan dapat mengubah hidup seseorang. Mari ulurkan tangan kepada mereka yang membutuhkan.",
+
+
+	"account_setting": "Pengaturan Akun",
+	"personal_data_title": "Data Pribadi",
+	"personal_data_desc": "Perbarui data pribadi Anda untuk meningkatkan pengalaman pengguna",
+	"e_statement_title": "E-Statement",
+	"e_statement_desc": "Terima e-statement untuk melacak transaksi Anda",
+	"referral_title": "Referral",
+	"referral_desc": "Undang teman dan dapatkan hadiah",
+	"comunity_title": "Komunitas",
+	"comunity_desc": "Bergabunglah dengan komunitas untuk terhubung dengan orang lain",
+	"app_setting": "Pengaturan Aplikasi",
+	"change_language_title": "Ubah Bahasa",
+	"change_language_desc": "Pilih bahasa yang Anda inginkan untuk aplikasi",
+	"dark_mode_title": "Mode Gelap",
+	"dark_mode_desc": "Aktifkan mode gelap untuk pengalaman malam yang lebih baik",
+
+	"choose_language": "Pilih Bahasa",
+	"change_language": "Ubah Bahasa"
+}

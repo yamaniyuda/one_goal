@@ -1,0 +1,34 @@
+{
+	"helloWorld": "Hello World!",
+	"@helloWorld": {
+		"description": "The conventional newborn programmer greeting"
+	},
+	"next": "Next",
+	"skip": "Skip",
+	"enter": "Enter",
+	"on_board_greeting_title_1": "Welcome to One Goal",
+	"on_board_greeting_desc_1": "A donation and fundraising platform to help realize hopes and lighten burdens together",
+	"on_board_greeting_title_2": "No Matter How Small, It Still Matters",
+	"on_board_greeting_desc_2": "Your help can be a hope for those in difficulty. Let's share and care for each other.",
+	"on_board_greeting_title_3": "Together, We Can",
+	"on_board_greeting_desc_3": "One act of kindness can change someone's life. Let's reach out to those in need.",
+
+	"account_setting": "Account Settings",
+	"personal_data_title": "Personal Data",
+	"personal_data_desc": "Update your personal data to enhance the user experience",
+	"e_statement_title": "E-Statement",
+	"e_statement_desc": "Receive e-statements to keep track of your transactions",
+	"referral_title": "Referral",
+	"referral_desc": "Invite friends and earn rewards",
+	"comunity_title": "Community",
+	"comunity_desc": "Join the community to connect with others",
+
+	"app_setting": "App Settings",
+	"change_language_title": "Change Language",
+	"change_language_desc": "Select your preferred language for the app",
+	"dark_mode_title": "Dark Mode",
+	"dark_mode_desc": "Enable dark mode for a better night-time experience",
+
+	"choose_language": "Choose Language",
+	"change_language": "Change Language"
+}

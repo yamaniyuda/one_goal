@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnboardingControls extends StatelessWidget {
   final bool isLastPage;
@@ -28,7 +29,7 @@ class OnboardingControls extends StatelessWidget {
               ),
             ),
             child: Text(
-              "Masuk",
+              AppLocalizations.of(context)!.enter,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class OnboardingControls extends StatelessWidget {
               ),
             ),
             child: Text(
-              "Lanjutkan",
+              AppLocalizations.of(context)!.next,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -80,7 +81,7 @@ class OnboardingControls extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  "Skip",
+                  AppLocalizations.of(context)!.skip,
                   style: TextStyle(color: Colors.blue), // Teks juga berwarna biru
                 ),
               ),

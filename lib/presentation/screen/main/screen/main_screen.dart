@@ -77,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
                                                     IconParkTwotone.add_one,
                                                     color: _selectedIndex == 2 ? Colors.white : Colors.grey,
                                                 ),
-                                                label: 'Add Post',
+                                                label: 'Add',
                                             ),
                                             BottomNavigationBarItem(
                                                 icon: Iconify(
