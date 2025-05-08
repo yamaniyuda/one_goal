@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:one_goal/presentation/screen/main/widget/account_content.dart';
 import 'package:one_goal/presentation/widget/background/circle_background.dart';
 import '../widget/account_header.dart';
+import 'package:one_goal/presentation/screen/main/widget/edit_profile_dialog.dart';
 
 class ProfileScreen extends StatefulWidget {
     const ProfileScreen({super.key});
@@ -36,69 +37,107 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit, color: Colors.white),
-            onPressed: () {
-              // Tambahkan aksi edit jika diperlukan
-            },
-          ),
+  icon: const Icon(Icons.edit, color: Colors.white),
+  onPressed: () {
+    showDialog(
+      context: context,
+      builder: (context) => EditProfileDialog(
+        name: name,
+        email: email,
+        phoneNumber: phoneNumber,
+        job: job,
+        gender: gender,
+        userStatus: userStatus,
+        onSave: (newName, newEmail, newPhoneNumber, newJob, newGender, newStatus) {
+          setState(() {
+            name = newName;
+            email = newEmail;
+            phoneNumber = newPhoneNumber;
+            job = newJob;
+            gender = newGender;
+            userStatus = newStatus;
+          });
+        },
+      ),
+    );
+  },
+),
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('assets/person_1.jpg'),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              name,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              email,
-              style: const TextStyle(fontSize: 14, color: Colors.grey),
-            ),
-            const SizedBox(height: 20),
-            _buildInfoCard('Phone Number', phoneNumber),
-            _buildInfoCard('Your Job', job),
-            _buildInfoCard('Gender', gender),
-            _buildInfoCard('User Status', userStatus),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  name = 'Patrick Kluivert';
-                  email = 'patrick.klivert@gmail.com';
-                  phoneNumber = '083456789123';
-                  job = 'Developer';
-                  gender = 'Male';
-                  userStatus = 'Donatur Baru';
-                });
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                minimumSize: const Size(200, 50),
-              ),
-              child: const Text('Update Data'),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // Logout logic
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 49, 49, 242),
-                minimumSize: const Size(200, 50),
-              ),
-              child: const Text('Logout'),
-            ),
-          ],
-        ),
+  padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 80.0), // Tambahkan padding bawah
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      CircleAvatar(
+        radius: 50,
+        backgroundImage: AssetImage('assets/person_1.jpg'),
       ),
+      const SizedBox(height: 16),
+      Text(
+        name,
+        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      ),
+      const SizedBox(height: 4),
+      Text(
+        email,
+        style: const TextStyle(fontSize: 14, color: Colors.grey),
+      ),
+      const SizedBox(height: 20),
+      _buildInfoCard('Phone Number', phoneNumber),
+      _buildInfoCard('Your Job', job),
+      _buildInfoCard('Gender', gender),
+      _buildInfoCard('User Status', userStatus),
+      const SizedBox(height: 30),
+      ElevatedButton(
+        onPressed: () {
+          setState(() {
+            name = 'Patrick Kluivert';
+            email = 'patrick.klivert@gmail.com';
+            phoneNumber = '083456789123';
+            job = 'Developer';
+            gender = 'Male';
+            userStatus = 'Donatur Baru';
+          });
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blue,
+          minimumSize: const Size(200, 50),
+        ),
+        child: const Text('Update Data'),
+      ),
+      const SizedBox(height: 16),
+      ElevatedButton(
+        onPressed: () {
+          // Logout logic
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 49, 49, 242),
+          minimumSize: const Size(200, 50),
+        ),
+        child: const Text('Logout'),
+      ),
+    ],
+  ),
+),
+bottomNavigationBar: BottomAppBar(
+  shape: const CircularNotchedRectangle(),
+  notchMargin: 8.0,
+  child: Container(
+    height: 60.0,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        IconButton(icon: const Icon(Icons.home), onPressed: () {}),
+        IconButton(icon: const Icon(Icons.search), onPressed: () {}),
+        IconButton(icon: const Icon(Icons.add), onPressed: () {}),
+        IconButton(icon: const Icon(Icons.list), onPressed: () {}),
+        IconButton(icon: const Icon(Icons.account_circle), onPressed: () {}),
+      ],
+    ),
+  ),
+),
+
     );
   }
 
