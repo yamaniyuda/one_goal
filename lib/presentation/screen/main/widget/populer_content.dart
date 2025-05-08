@@ -108,7 +108,7 @@ class _PopulerContentState extends State<PopulerContent> {
                       ],
                     ),
                   );
-                }).toList(),
+                }),
               ],
             ),
           ),

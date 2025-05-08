@@ -5,7 +5,6 @@ import 'package:iconify_flutter/icons/icon_park_twotone.dart';
 import 'package:one_goal/presentation/screen/main/widget/category_list.dart';
 import 'package:one_goal/presentation/screen/main/widget/populer_content.dart';
 import 'package:one_goal/presentation/screen/main/widget/post_content_video.dart';
-import 'package:one_goal/presentation/screen/main/widget/post_content.dart';
 import 'package:one_goal/presentation/screen/main/widget/home_donation.dart';
 
 
