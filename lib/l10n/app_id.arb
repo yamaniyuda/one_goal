@@ -1,5 +1,4 @@
 {
-	"@@locale": "id",
 	"helloWorld": "Halo Dunia!",
 	"next": "Berikutnya",
 	"skip": "Lewati",
@@ -28,5 +27,30 @@
 	"dark_mode_desc": "Aktifkan mode gelap untuk pengalaman malam yang lebih baik",
 
 	"choose_language": "Pilih Bahasa",
-	"change_language": "Ubah Bahasa"
+	"change_language": "Ubah Bahasa",
+
+	"home": "Beranda",
+	"search": "Cari",
+	"add": "Tambah",
+	"list": "Daftar",
+	"account": "Akun",
+	"populer": "Populer",
+	"total_balance": "Total Saldo",
+	"category": "Kategori",
+	"days_ago": "hari yang lalu",
+	"health": "Kesehatan",
+	"disaster": "Bencana",
+	"together": "Bersama",
+	"education": "Pendidikan",
+	"forest": "Hutan",
+	"children": "Anak-anak",
+	"elderly": "Lansia",
+	"fundraising": "Penggalangan Dana",
+	"under_maintenance": "Sedang Dalam Perbaikan",
+	"my_donation": "Donasi Saya",
+	"donation_history": "Riwayat Donasi",
+	"show_all": "Tampilkan Semua",
+	"success": "Berhasil",
+	"pendding": "Tertunda",
+	"canceled": "Dibatalkan"
 }

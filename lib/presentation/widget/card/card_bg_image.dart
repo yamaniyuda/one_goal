@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class CardBgImage extends StatefulWidget {
     final ImageProvider image;
@@ -45,7 +47,7 @@ class _CardBgImageState extends State<CardBgImage> {
                             ),
                         ),
                         Text(
-                            'Pengumpulan Dana',
+                            AppLocalizations.of(context)!.fundraising,
                             style: GoogleFonts.inter(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,

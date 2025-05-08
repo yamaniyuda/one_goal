@@ -6,7 +6,7 @@ import 'package:one_goal/presentation/screen/main/widget/category_list.dart';
 import 'package:one_goal/presentation/screen/main/widget/populer_content.dart';
 import 'package:one_goal/presentation/screen/main/widget/post_content_video.dart';
 import 'package:one_goal/presentation/screen/main/widget/post_content.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeContent extends StatelessWidget {
     const HomeContent({super.key});
@@ -81,7 +81,7 @@ class HomeContent extends StatelessWidget {
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                                 Text(
-                                                    'Total Saldo',
+                                                    AppLocalizations.of(context)!.total_balance,
                                                     style: GoogleFonts.inter(
                                                         fontSize: 14
                                                     ),

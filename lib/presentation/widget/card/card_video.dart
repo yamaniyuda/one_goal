@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/icon_park_twotone.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CardVideo extends StatefulWidget {
     final ImageProvider image;
@@ -57,7 +58,7 @@ class _CardVideoState extends State<CardVideo> {
                                 bottom: 10,
                                 left: 10,
                                 child: Text(
-                                    '2 Hari yang lalu',
+                                    "2 ${AppLocalizations.of(context)!.days_ago}",
                                     style: GoogleFonts.inter(
                                         fontSize: 14,
                                         color: Colors.white,

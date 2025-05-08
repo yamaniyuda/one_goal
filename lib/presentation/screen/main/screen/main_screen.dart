@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:one_goal/presentation/screen/main/main.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/icon_park_twotone.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -63,35 +64,35 @@ class _MainScreenState extends State<MainScreen> {
                                                     IconParkTwotone.home_two,
                                                     color: _selectedIndex == 0 ? Colors.white : Colors.grey,
                                                 ),
-                                                label: 'Home',
+                                                label: AppLocalizations.of(context)!.home,
                                             ),
                                             BottomNavigationBarItem(
                                                 icon: Iconify(
                                                     IconParkTwotone.search,
                                                     color: _selectedIndex == 1 ? Colors.white : Colors.grey,
                                                 ),
-                                                label: 'Search',
+                                                label: AppLocalizations.of(context)!.search,
                                             ),
                                             BottomNavigationBarItem(
                                                 icon: Iconify(
                                                     IconParkTwotone.add_one,
                                                     color: _selectedIndex == 2 ? Colors.white : Colors.grey,
                                                 ),
-                                                label: 'Add',
+                                                label: AppLocalizations.of(context)!.add,
                                             ),
                                             BottomNavigationBarItem(
                                                 icon: Iconify(
                                                     IconParkTwotone.list_one,
                                                     color: _selectedIndex == 3 ? Colors.white : Colors.grey,
                                                 ),
-                                                label: 'List',
+                                                label: AppLocalizations.of(context)!.list,
                                             ),
                                             BottomNavigationBarItem(
                                                 icon: Iconify(
                                                     IconParkTwotone.people,
                                                     color: _selectedIndex == 4 ? Colors.white : Colors.grey,
                                                 ),
-                                                label: 'Account',
+                                                label: AppLocalizations.of(context)!.account,
                                             ),
                                         ],
                                         type: BottomNavigationBarType.fixed,

@@ -30,5 +30,30 @@
 	"dark_mode_desc": "Enable dark mode for a better night-time experience",
 
 	"choose_language": "Choose Language",
-	"change_language": "Change Language"
+	"change_language": "Change Language",
+	
+	"home": "Home",
+	"search": "Search",
+	"add": "Add",
+	"list": "List",
+	"account": "Account",
+	"populer": "Popular",
+	"total_balance": "Total Balance",
+	"category": "Category",
+	"days_ago": "days ago",
+	"health": "Health",
+	"disaster": "Disaster",
+	"together": "Together",
+	"education": "Education",
+	"forest": "Forest",
+	"children": "Children",
+	"elderly": "Elderly",
+	"fundraising": "Fundraising",
+	"under_maintenance": "Under Maintenance",
+	"my_donation": "My Donation",
+	"donation_history": "Donation History",
+	"show_all": "Show All",
+	"success": "Success",
+	"pendding": "Pending",
+	"canceled": "Canceled"
 }

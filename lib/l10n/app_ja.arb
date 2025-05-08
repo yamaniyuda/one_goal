@@ -1,5 +1,4 @@
 {
-	"@@locale": "ja",
 	"helloWorld": "こんにちは世界！",
 	"next": "次へ",
 	"skip": "スキップ",
@@ -27,5 +26,29 @@
 	"dark_mode_desc": "夜間の使用に適したダークモードを有効にする",
 	
 	"choose_language": "言語を選択する",
-	"change_language": "言語を変更する"
+	"change_language": "言語を変更する",
+	"home": "ホーム",
+	"search": "検索",
+	"add": "追加",
+	"list": "リスト",
+	"account": "アカウント",
+	"populer": "人気",
+	"total_balance": "合計残高",
+	"category": "カテゴリー",
+	"days_ago": "日前",
+	"health": "健康",
+	"disaster": "災害",
+	"together": "一緒に",
+	"education": "教育",
+	"forest": "森林",
+	"children": "子供",
+	"elderly": "高齢者",
+	"fundraising": "募金",
+	"under_maintenance": "メンテナンス中",
+	"my_donation": "私の寄付",
+	"donation_history": "寄付履歴",
+	"show_all": "すべて表示",
+	"success": "成功",
+	"pendding": "保留中",
+	"canceled": "キャンセル済み"
 }

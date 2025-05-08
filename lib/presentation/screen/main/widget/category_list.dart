@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_goal/presentation/screen/main/models/category_model.dart';
 
@@ -6,19 +7,20 @@ class CategoryList extends StatelessWidget {
     CategoryList({super.key});
 
 
-    final List<CategoryModel> categories = [
-        CategoryModel(image: 'assets/icons/icon_heart.png', name: 'Kesehatan', link: ''),
-        CategoryModel(image: 'assets/icons/icon_disaster.png', name: 'Bencana', link: ''),
-        CategoryModel(image: 'assets/icons/icon_arm_wrestling.png', name: 'Bersama', link: ''),
-        CategoryModel(image: 'assets/icons/icon_learning.png', name: 'Pendidikan', link: ''),
-        CategoryModel(image: 'assets/icons/forest.png', name: 'Hutan', link: ''),
-        CategoryModel(image: 'assets/icons/children.png', name: 'Anak-anak', link: ''),
-        CategoryModel(image: 'assets/icons/nursing-home.png', name: 'Lansia', link: ''),
-    ];
+
 
 
     @override
     Widget build(BuildContext context) {
+          final List<CategoryModel> categories = [
+            CategoryModel(image: 'assets/icons/icon_heart.png', name: AppLocalizations.of(context)!.health, link: ''),
+            CategoryModel(image: 'assets/icons/icon_disaster.png', name: AppLocalizations.of(context)!.disaster, link: ''),
+            CategoryModel(image: 'assets/icons/icon_arm_wrestling.png', name: AppLocalizations.of(context)!.together, link: ''),
+            CategoryModel(image: 'assets/icons/icon_learning.png', name: AppLocalizations.of(context)!.education, link: ''),
+            CategoryModel(image: 'assets/icons/forest.png', name: AppLocalizations.of(context)!.forest, link: ''),
+            CategoryModel(image: 'assets/icons/children.png', name: AppLocalizations.of(context)!.children, link: ''),
+            CategoryModel(image: 'assets/icons/nursing-home.png', name: AppLocalizations.of(context)!.elderly, link: ''),
+        ];
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -28,7 +30,7 @@ class CategoryList extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                             Text(
-                                'Kategori',
+                                AppLocalizations.of(context)!.category,
                                 style: GoogleFonts.inter(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
