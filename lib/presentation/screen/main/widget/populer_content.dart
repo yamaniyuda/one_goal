@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_goal/presentation/widget/card/card_bg_image.dart';
+import 'package:one_goal/presentation/screen/main/widget/GalangDanaPage.dart';
 
 class PopulerContent extends StatefulWidget {
   const PopulerContent({super.key});
@@ -61,7 +62,20 @@ class _PopulerContentState extends State<PopulerContent> {
               children: [
                 const SizedBox(width: 20),
                 ...popularItems.map((item) {
-                  return Padding(
+                  return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GalangDanaPage(
+                        imageUrl: item['imagePath'],
+                        title: item['title'],
+                    
+                  ),
+                      ),
+                    );
+                  },
+                  child : Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,6 +121,7 @@ class _PopulerContentState extends State<PopulerContent> {
                         ),
                       ],
                     ),
+                  ),
                   );
                 }),
               ],

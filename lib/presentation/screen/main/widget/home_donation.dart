@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_goal/presentation/screen/main/widget/GalangDanaPage.dart';
 
 class DonationCard extends StatelessWidget {
   final String imageUrl;
@@ -6,6 +7,7 @@ class DonationCard extends StatelessWidget {
   final String description;
   final String collectedAmount;
   final double progress;
+  final VoidCallback onTap;
 
   const DonationCard({
     super.key,
@@ -14,93 +16,69 @@ class DonationCard extends StatelessWidget {
     required this.description,
     required this.collectedAmount,
     required this.progress,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-      elevation: 3,
-      child: Padding(
-        padding: const EdgeInsets.all(14),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                imageUrl,
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        margin: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+        elevation: 3,
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  imageUrl,
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    description,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Terkumpul $collectedAmount',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Stack(
-                    children: [
-                      Container(
-                        height: 10,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[400],
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                      ),
-                      FractionallySizedBox(
-                        widthFactor: progress,
-                        child: Container(
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                    const SizedBox(height: 6),
+                    Text(description, style: TextStyle(fontSize: 14, color: Colors.grey[700])),
+                    const SizedBox(height: 8),
+                    Text('Terkumpul $collectedAmount', style: TextStyle(fontSize: 14, color: Colors.grey[700])),
+                    const SizedBox(height: 6),
+                    Stack(
+                      children: [
+                        Container(
                           height: 10,
-                          decoration: BoxDecoration(
-                            color: Colors.blue[700],
-                            borderRadius: BorderRadius.circular(5),
+                          decoration: BoxDecoration(color: Colors.grey[400], borderRadius: BorderRadius.circular(5)),
+                        ),
+                        FractionallySizedBox(
+                          widthFactor: progress,
+                          child: Container(
+                            height: 10,
+                            decoration: BoxDecoration(color: Colors.blue[700], borderRadius: BorderRadius.circular(5)),
                           ),
                         ),
-                      ),
-                      Positioned.fill(
-                        child: Center(
-                          child: Text(
-                            '${(progress * 100).toInt()}%',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
+                        Positioned.fill(
+                          child: Center(
+                            child: Text(
+                              '${(progress * 100).toInt()}%',
+                              style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
                             ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                ],
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -159,6 +137,18 @@ class DonationList extends StatelessWidget {
             imageUrl: data['imageUrl'],
             collectedAmount: data['amount'],
             progress: data['progress'],
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => GalangDanaPage(
+                    imageUrl: data['imageUrl'],
+                    title: data['title'],
+                    
+                  ),
+                ),
+              );
+            },
           );
         }).toList(),
       ),
