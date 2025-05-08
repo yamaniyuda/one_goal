@@ -6,8 +6,7 @@ import 'package:one_goal/presentation/screen/main/widget/category_list.dart';
 import 'package:one_goal/presentation/screen/main/widget/populer_content.dart';
 import 'package:one_goal/presentation/screen/main/widget/post_content_video.dart';
 import 'package:one_goal/presentation/screen/main/widget/post_content.dart';
-import 'package:one_goal/presentation/screen/main/widget/home_donation.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeContent extends StatelessWidget {
     const HomeContent({super.key});
@@ -40,10 +39,8 @@ class HomeContent extends StatelessWidget {
                             CategoryList(),
                             const SizedBox(height: 20),
                             PostContentVideo(),
-
                             const SizedBox(height: 30),
-                            DonationList(),
-
+                            PostContent(),
                             const SizedBox(height: 100),
                         ],
                     ),
@@ -84,7 +81,7 @@ class HomeContent extends StatelessWidget {
                                             mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
                                                 Text(
-                                                    'Total Saldo',
+                                                    AppLocalizations.of(context)!.total_balance,
                                                     style: GoogleFonts.inter(
                                                         fontSize: 14
                                                     ),
