@@ -33,7 +33,7 @@ final router = GoRouter(
         
         GoRoute(
             path: '/post/galang-dana/:title/:image',
-            name: 'post/galang-dana', 
+            name: '/post/galang-dana', 
             builder: (context, state) => GalangDanaScreen(imageUrl: state.pathParameters['image'], title: state.pathParameters['title'])
         ),
         

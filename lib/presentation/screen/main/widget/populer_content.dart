@@ -64,7 +64,7 @@ class _PopulerContentState extends State<PopulerContent> {
                 const SizedBox(width: 20),
                 ...popularItems.map((item) {
                   return GestureDetector(
-                  onTap: () => context.pushNamed('post/galang-dana', queryParameters: { 'image': item['imagePath'], 'title': item['title'] }),
+                  onTap: () => context.pushNamed('/post/galang-dana', pathParameters: { 'image': item['imagePath'], 'title': item['title'] }),
                   child : Padding(
                     padding: const EdgeInsets.only(right: 10),
                     child: Column(
