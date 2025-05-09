@@ -162,6 +162,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 32),
 
+            AccountContent(),
+
             // Update Button
             ElevatedButton(
               onPressed: () {
