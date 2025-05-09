@@ -48,13 +48,12 @@ class HistoryScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          // Header dengan latar biru dan info donasi
           Container(
+            padding: const EdgeInsets.only(top: 60, bottom: 20),
             decoration: const BoxDecoration(
               color: Color(0xFF5D7DCE),
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
             ),
-            padding: const EdgeInsets.only(top: 60, bottom: 20),
             child: Column(
               children: [
                 Text(
