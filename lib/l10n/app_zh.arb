@@ -1,5 +1,13 @@
 {
+<<<<<<< HEAD
 	"helloWorld": "你好，世界！",
+=======
+	"@@locale": "zh",
+	"helloWorld": "你好，世界！",
+	"@helloWorld": {
+		"description": "程序员的传统问候语"
+	},
+>>>>>>> 32fae0b (fix merge conflict)
 	"next": "下一步",
 	"skip": "跳过",
 	"enter": "进入",

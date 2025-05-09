@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:one_goal/presentation/screen/main/widget/account_content.dart';
+import 'package:one_goal/presentation/widget/background/circle_background.dart';
+import '../widget/account_header.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
@@ -46,10 +49,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         elevation: 0,
         title: const Text('Personal Data'),
         leading: Builder(
-          builder: (context) => IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          ),
+          builder:
+              (context) => IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
         ),
       ),
       body: SingleChildScrollView(
@@ -68,9 +72,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(name, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
+            Text(
+              name,
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 4),
-            Text(email, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey[600])),
+            Text(
+              email,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
+            ),
             const SizedBox(height: 24),
 
             // Editable Info Cards
@@ -83,7 +97,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: TextField(
                 controller: phoneController,
                 keyboardType: TextInputType.phone,
-                decoration: const InputDecoration(border: InputBorder.none, isDense: true),
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  isDense: true,
+                ),
               ),
               displayText: phoneController.text,
             ),
@@ -95,7 +112,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTapEdit: () => setState(() => editJob = !editJob),
               child: TextField(
                 controller: jobController,
-                decoration: const InputDecoration(border: InputBorder.none, isDense: true),
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  isDense: true,
+                ),
               ),
               displayText: jobController.text,
             ),
@@ -130,7 +150,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 underline: const SizedBox(),
                 items: const [
                   DropdownMenuItem(value: 'Donatur', child: Text('Donatur')),
-                  DropdownMenuItem(value: 'Donatur Baru', child: Text('Donatur Baru')),
+                  DropdownMenuItem(
+                    value: 'Donatur Baru',
+                    child: Text('Donatur Baru'),
+                  ),
                   DropdownMenuItem(value: 'Relawan', child: Text('Relawan')),
                 ],
                 onChanged: (value) => setState(() => selectedStatus = value!),
@@ -153,7 +176,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 minimumSize: const Size(200, 50),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
               child: const Text('Update Data'),
             ),
@@ -206,14 +231,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                    label,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   const SizedBox(height: 4),
-                  isEditing ? child : Text(displayText, style: const TextStyle(color: Colors.grey)),
+                  isEditing
+                      ? child
+                      : Text(
+                        displayText,
+                        style: const TextStyle(color: Colors.grey),
+                      ),
                 ],
               ),
             ),
             IconButton(
-              icon: Icon(isEditing ? Icons.check_circle : Icons.edit, color: Colors.grey),
+              icon: Icon(
+                isEditing ? Icons.check_circle : Icons.edit,
+                color: Colors.grey,
+              ),
               onPressed: onTapEdit,
             ),
           ],
@@ -281,6 +317,30 @@ class SidebarMenu extends StatelessWidget {
       ),
     );
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //     return CircleBackground(
+  //         child: Stack(
+  //             children: [
+  //                 Container(
+  //                     width: double.infinity,
+  //                     color: Colors.white,
+  //                     child: SingleChildScrollView(
+  //                         physics: NeverScrollableScrollPhysics(),
+  //                         child: Column(
+  //                             children: [
+  //                                 AccountContent()
+  //                             ],
+  //                         ),
+  //                     ),
+  //                 ),
+  //                 AccountHeader()
+  //             ],
+  //         ),
+  //       ),
+  //     ],
+  //   ),
+  // );
 
   Widget _menuItem(IconData icon, String title, BuildContext context) {
     return ListTile(
