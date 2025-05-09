@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_goal/presentation/widget/card/card_bg_image.dart';
-import 'package:one_goal/presentation/screen/main/widget/GalangDanaPage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PopulerContent extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:one_goal/presentation/screen/change_language/change_language.dart';
-import 'package:one_goal/presentation/screen/post/screen/short_video_screen.dart';
+import 'package:one_goal/presentation/screen/post/post.dart';
 import 'package:one_goal/presentation/screen/splash/screen/splash_screen.dart';
 import 'package:one_goal/presentation/screen/splash/spalsh.dart';
 import 'package:one_goal/presentation/screen/main/main.dart';
@@ -28,7 +28,15 @@ final router = GoRouter(
         
         GoRoute(path: '/splash', builder: (context, state) => const SplashScreen()),
         GoRoute(path: '/onboarding', builder: (context, state) => const OnboardingPage()),
-        GoRoute(path: '/post/short-video', builder: (context, state) => ShortVideoScreen()),
         GoRoute(path: '/change-language', builder: (context, state) => const ChangeLanguageScreen()),
+        GoRoute(path: '/post/short-video', builder: (context, state) => ShortVideoScreen()),
+        
+        GoRoute(
+            path: '/post/galang-dana/:title/:image',
+            name: 'post/galang-dana', 
+            builder: (context, state) => GalangDanaScreen(imageUrl: state.pathParameters['image'], title: state.pathParameters['title'])
+        ),
+        
+        GoRoute(path: '/post/cerita-penggalangan', builder: (context, state) => CeritaPenggalanganScreen()),
     ],
 );

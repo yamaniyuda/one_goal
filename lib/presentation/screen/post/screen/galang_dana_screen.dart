@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import  'package:one_goal/presentation/screen/main/widget/CeritaPenggalanganPage.dart';
-import 'package:one_goal/presentation/screen/main/widget/ListDonaturDana.dart';
+import  'package:one_goal/presentation/screen/post/screen/cerita_penggalangan_screen.dart';
+import 'package:one_goal/presentation/screen/post/widget/list_donatur_dana.dart';
 
-class GalangDanaPage extends StatelessWidget {
-	final String imageUrl;
-  	final String title;
+class GalangDanaScreen extends StatelessWidget {
+	final String? imageUrl;
+  final String? title;
 	
-  const GalangDanaPage({
+  const GalangDanaScreen({
 	super.key,
 	required this.imageUrl,
     required this.title,
@@ -23,7 +23,7 @@ class GalangDanaPage extends StatelessWidget {
           Stack(
             children: [
               Image.asset(
-                imageUrl, // Ganti dengan path gambar kamu
+                imageUrl!, // Ganti dengan path gambar kamu
                 width: double.infinity,
                 height: 220,
                 fit: BoxFit.cover,
@@ -53,7 +53,7 @@ class GalangDanaPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      title!,
                       style: TextStyle(
                           fontSize: 18, fontWeight: FontWeight.bold),
                     ),
@@ -94,7 +94,7 @@ class GalangDanaPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const CeritaPenggalanganPage(),
+                            builder: (context) => const CeritaPenggalanganScreen(),
                           ),
                         );
                       },
@@ -117,7 +117,7 @@ class GalangDanaPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const CeritaPenggalanganPage(),
+                            builder: (context) => const CeritaPenggalanganScreen(),
                           ),
                         );
                       },
