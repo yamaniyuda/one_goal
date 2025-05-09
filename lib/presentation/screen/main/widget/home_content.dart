@@ -8,7 +8,13 @@ import 'package:one_goal/presentation/screen/main/widget/post_content_video.dart
 import 'package:one_goal/presentation/screen/main/widget/post_content.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class HomeContent extends StatelessWidget {
+import 'package:one_goal/presentation/screen/main/widget/home_donation.dart';
+
+
+
+
+mixin Add {
+}class HomeContent extends StatelessWidget {
     const HomeContent({super.key});
 
     @override
