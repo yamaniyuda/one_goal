@@ -10,7 +10,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 
-
 mixin Add {
 }class HomeContent extends StatelessWidget {
     const HomeContent({super.key});
