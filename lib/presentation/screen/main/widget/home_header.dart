@@ -119,12 +119,7 @@ class HomeHeader extends StatelessWidget {
                                                     ),
                                                 ),
                                             ],
-                                        ),
-                                        const SizedBox(width: 10),
-                                        Icon(
-                                            Icons.more_vert,
-                                            color: Colors.white,
-                                        ),
+                                        )
                                     ],
                                 ),
                             ],

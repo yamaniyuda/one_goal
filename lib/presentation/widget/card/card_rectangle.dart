@@ -62,13 +62,17 @@ class CardRectangle extends StatelessWidget {
                                 Stack(
                                     alignment: Alignment.center,
                                     children: [
-                                        SizedBox(
-                                            height: 14,
-                                            child: LinearProgressIndicator(
-                                                value: 0.5,
-                                                backgroundColor: Colors.grey,
-                                                valueColor: AlwaysStoppedAnimation<Color>(
-                                                    Theme.of(context).primaryColor,
+                                        ClipRRect(
+                                            borderRadius: BorderRadius.circular(100),
+                                            child: SizedBox(
+                                                height: 14,
+                                                width: double.infinity,
+                                                child: LinearProgressIndicator(
+                                                    value: 0.5,
+                                                    backgroundColor: Colors.grey,
+                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                        Theme.of(context).primaryColor,
+                                                    ),
                                                 ),
                                             ),
                                         ),

@@ -66,6 +66,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       height: 100 + (_animation.value * 100),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
+                        // ignore: deprecated_member_use
                         color: Colors.white.withOpacity(0.2),
                       ),
                     );

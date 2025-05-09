@@ -6,38 +6,36 @@ class PostContentVideo extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return Container(
-            child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                    children: [
-                        const SizedBox(width: 20),
-                        CardVideo(
-                            height: 280,
-                            width: 200,
-                            image: AssetImage('assets/video_3.png'),
-                        ),
-                        SizedBox(width: 10),
-                        CardVideo(
-                            height: 280,
-                            width: 200,
-                            image: AssetImage('assets/video_2.png'),
-                        ),
-                        SizedBox(width: 10),
-                        CardVideo(
-                            height: 280,
-                            width: 200,
-                            image: AssetImage('assets/video_4.png'),
-                        ),
-                        SizedBox(width: 10),
-                        CardVideo(
-                            height: 280,
-                            width: 200,
-                            image: AssetImage('assets/video_1.png'),
-                        ),
-                        SizedBox(width: 10),
-                    ],
-                ),
+        return SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+                children: [
+                    const SizedBox(width: 20),
+                    CardVideo(
+                        height: 280,
+                        width: 200,
+                        image: AssetImage('assets/video_3.png'),
+                    ),
+                    SizedBox(width: 10),
+                    CardVideo(
+                        height: 280,
+                        width: 200,
+                        image: AssetImage('assets/video_2.png'),
+                    ),
+                    SizedBox(width: 10),
+                    CardVideo(
+                        height: 280,
+                        width: 200,
+                        image: AssetImage('assets/video_4.png'),
+                    ),
+                    SizedBox(width: 10),
+                    CardVideo(
+                        height: 280,
+                        width: 200,
+                        image: AssetImage('assets/video_1.png'),
+                    ),
+                    SizedBox(width: 10),
+                ],
             ),
         );
     }

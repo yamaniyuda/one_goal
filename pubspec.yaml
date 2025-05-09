@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.7.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +42,11 @@ dependencies:
   iconify_flutter: ^0.0.7
   google_fonts: ^6.2.1
   flutter_launcher_icons: ^0.14.3
+  provider: ^6.1.4
+  video_player: ^2.9.5
+  video_player_web: ^2.3.5
+  intl: any
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
@@ -57,7 +64,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -68,7 +75,9 @@ flutter:
     - assets/
     - assets/icons/
     - assets/images/
+    - assets/flags/
     - assets/images/onboarding/
+    - assets/short_videos/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

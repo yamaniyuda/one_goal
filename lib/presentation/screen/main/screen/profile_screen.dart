@@ -195,6 +195,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.grey.withOpacity(0.15),
               spreadRadius: 1,
               blurRadius: 6,
@@ -207,6 +208,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
+                // ignore: deprecated_member_use
                 color: iconColor.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -304,3 +306,6 @@ class SidebarMenu extends StatelessWidget {
     );
   }
 }
+
+
+
