@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchScreen extends StatefulWidget {
     const SearchScreen({super.key});
@@ -20,8 +21,8 @@ class _SearchScreenState extends State<SearchScreen> {
                         height: 300,
                     ),
                     const SizedBox(height: 20),
-                    const Text(
-                        'Under Maintenance',
+                    Text(
+                        AppLocalizations.of(context)!.under_maintenance,
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                 ],

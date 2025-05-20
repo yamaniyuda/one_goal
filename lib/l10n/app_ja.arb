@@ -51,5 +51,8 @@
 	"show_all": "すべて表示",
 	"success": "成功",
 	"pendding": "保留中",
-	"canceled": "キャンセル済み"
+	"canceled": "キャンセル済み",
+	"good_morning": "おはようございます",
+	"find_friends_with_disabilities": "障害のある友達を見つける",
+	"join_our_community": "私たちのコミュニティに参加する"
 }

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:one_goal/app/config/routes.dart';
 import 'package:one_goal/app/config/theme.dart';
 import 'package:provider/provider.dart';
-import 'presentation/screen/auth/screen/auth_provider.dart';
+import 'presentation/screen/auth/provider/auth_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:one_goal/presentation/providers/localizations_provider.dart';
 // import 'package:hive'

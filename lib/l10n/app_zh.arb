@@ -52,5 +52,8 @@
 	"show_all": "显示全部",
 	"success": "成功",
 	"pendding": "待处理",
-	"canceled": "已取消"
+	"canceled": "已取消",
+	"good_morning": "早上好",
+	"find_friends_with_disabilities": "寻找残疾朋友",
+	"join_our_community": "加入我们的社区"
 }

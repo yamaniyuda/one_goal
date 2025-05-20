@@ -16,7 +16,7 @@ class AccountContent extends StatelessWidget {
             clipBehavior: Clip.none, 
             children: [
                 Container(
-                    margin: const EdgeInsets.only(top: 50),
+                    margin: const EdgeInsets.only(top: 40),
                     width: screenWidth,
                     padding: const EdgeInsets.all(16),
                     height: MediaQuery.of(context).size.height,
@@ -65,6 +65,7 @@ class AccountContent extends StatelessWidget {
                                         color: Colors.grey,
                                     ),
                                 ),
+                                onTap: () => context.push('/account/update-profile'),
                             ),
                             ListTile(
                                 leading: Iconify(

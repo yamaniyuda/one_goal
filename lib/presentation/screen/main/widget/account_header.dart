@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_goal/presentation/widget/curved_edges/curved_edges.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountHeader extends StatelessWidget {
     const AccountHeader({super.key});
@@ -87,7 +88,7 @@ class AccountHeader extends StatelessWidget {
                                                     ),
                                                 ),
                                                 Text(
-                                                    'Good Morning, John!',
+                                                    "${AppLocalizations.of(context)!.good_morning}, John!",
                                                     style: GoogleFonts.inter(
                                                         fontSize: 14,
                                                         color: Colors.white70,

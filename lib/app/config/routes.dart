@@ -6,6 +6,7 @@ import 'package:one_goal/presentation/screen/splash/spalsh.dart';
 import 'package:one_goal/presentation/screen/main/main.dart';
 import 'package:one_goal/presentation/screen/onboarding/screen/onboarding_screen.dart';
 import 'package:one_goal/presentation/screen/auth/auth.dart';
+import 'package:one_goal/presentation/screen/notification/notification.dart';
 
 
 final router = GoRouter(
@@ -38,5 +39,7 @@ final router = GoRouter(
         ),
         
         GoRoute(path: '/post/cerita-penggalangan', builder: (context, state) => CeritaPenggalanganScreen()),
+        GoRoute(path: '/account/update-profile', builder: (context, state) => ProfileUpdateScreen()),
+        GoRoute(path: '/notification', builder: (context, state) => NotificationScreen()),
     ],
 );

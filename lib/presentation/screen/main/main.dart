@@ -4,3 +4,4 @@ export 'screen/add_post_screen.dart';
 export 'screen/profile_screen.dart';
 export 'screen/search_screen.dart';
 export 'screen/history_screen.dart';
+export 'screen/profile_update_screen.dart';

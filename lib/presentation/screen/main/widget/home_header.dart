@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:one_goal/presentation/widget/curved_edges/curved_edges.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -87,7 +89,7 @@ class HomeHeader extends StatelessWidget {
                                                     ),
                                                 ),
                                                 Text(
-                                                    'Good Morning, John!',
+                                                    "${AppLocalizations.of(context)!.good_morning}, John!",
                                                     style: GoogleFonts.inter(
                                                         fontSize: 14,
                                                         color: Colors.white70,
@@ -97,30 +99,16 @@ class HomeHeader extends StatelessWidget {
                                         ),
                                     ],
                                 ),
-                                Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                        Stack(
-                                            children: [
-                                                Icon(
-                                                    Icons.notifications,
-                                                    color: Colors.white,
-                                                ),
-                                                Positioned(
-                                                    top: 0,
-                                                    right: 0,
-                                                    child: Container(
-                                                        width: 8,
-                                                        height: 8,
-                                                        decoration: BoxDecoration(
-                                                            color: Colors.red,
-                                                            shape: BoxShape.circle,
-                                                        ),
-                                                    ),
-                                                ),
-                                            ],
-                                        )
-                                    ],
+                                IconButton(
+                                    icon: Badge.count(
+                                        count: 10,
+                                        child: Icon(
+                                            Icons.notifications,
+                                            color: Colors.white,
+                                            size: 30,
+                                        ),
+                                    ),
+                                    onPressed: () => context.push('/notification'),
                                 ),
                             ],
                         )
