@@ -31,6 +31,8 @@
 
 	"choose_language": "Choose Language",
 	"change_language": "Change Language",
+	"logout": "Logout",
+	"logout_desc": "Logout from your account",
 	
 	"home": "Home",
 	"search": "Search",

@@ -8,15 +8,14 @@ import 'package:provider/provider.dart';
 import 'presentation/screen/auth/provider/auth_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:one_goal/presentation/providers/localizations_provider.dart';
-// import 'package:hive'
 
 
 void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
     ));
     usePathUrlStrategy();
-    WidgetsFlutterBinding.ensureInitialized();
     final localizationsProvider = LocalizationsProvider();
     await localizationsProvider.loadLocale();
     runApp(

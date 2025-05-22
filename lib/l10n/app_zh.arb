@@ -29,6 +29,8 @@
 	"dark_mode_desc": "启用深色模式以获得更好的夜间体验",
 	"choose_language": "选择语言",
 	"change_language": "更改语言",
+	"logout": "登出",
+	"logout_desc": "登出您的账户",
 	"home": "主页",
 	"search": "搜索",
 	"add": "添加",

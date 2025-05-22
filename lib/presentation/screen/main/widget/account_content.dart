@@ -191,6 +191,29 @@ class AccountContent extends StatelessWidget {
                                     ),
                                 ),
                             ),
+                            ListTile(
+                                leading: Iconify(
+                                    IconParkTwotone.open_door,
+                                    color: Colors.black,
+                                    size: 30,
+                                ),
+                                title: Text(
+                                    AppLocalizations.of(context)!.logout,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                    ),
+                                ),
+                                subtitle: Text(
+                                    AppLocalizations.of(context)!.logout_desc,
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.grey,
+                                    ),
+                                ),
+                            ),
                         ],
                     ),
                 ),

@@ -25,6 +25,8 @@
 	"change_language_desc": "アプリの希望する言語を選択する",
 	"dark_mode_title": "ダークモード",
 	"dark_mode_desc": "夜間の使用に適したダークモードを有効にする",
+	"logout": "ログアウト",
+	"logout_desc": "アカウントからログアウトする",
 	
 	"choose_language": "言語を選択する",
 	"change_language": "言語を変更する",
