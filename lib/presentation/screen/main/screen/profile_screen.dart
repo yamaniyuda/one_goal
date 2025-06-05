@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_goal/presentation/screen/main/screen/statement_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -187,6 +188,12 @@ class SidebarMenu extends StatelessWidget {
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: () {
         // Navigation logic
+		if (title == 'E-Statement') {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const StatementScreen()),
+        );
+      }
       },
     );
   }
