@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddPostScreen extends StatefulWidget {
     const AddPostScreen({super.key});
@@ -20,8 +21,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         height: 300,
                     ),
                     const SizedBox(height: 20),
-                    const Text(
-                        'Under Maintenance',
+                    Text(
+                        AppLocalizations.of(context)!.under_maintenance,
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                 ],

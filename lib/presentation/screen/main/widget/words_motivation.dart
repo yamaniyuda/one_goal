@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WordsMotivation extends StatelessWidget {
@@ -14,7 +15,7 @@ class WordsMotivation extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                             Text(
-                                'Temukan teman-teman disabilitas',
+                                AppLocalizations.of(context)!.find_friends_with_disabilities,
                                 style: GoogleFonts.inter(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -22,7 +23,7 @@ class WordsMotivation extends StatelessWidget {
                                 ),
                             ),
                             Text(
-                                'Bergabunglah dengan komunitas kami',
+                                AppLocalizations.of(context)!.join_our_community,
                                 style: GoogleFonts.inter(
                                     fontSize: 14,
                                     color: Colors.white,
