@@ -83,6 +83,7 @@ class HistoryScreen extends StatelessWidget {
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
             ),
             child: Column(
+                
               children: [
                 Text(
                   AppLocalizations.of(context)!.my_donation,
