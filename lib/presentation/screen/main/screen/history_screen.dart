@@ -84,6 +84,7 @@ class HistoryScreen extends StatelessWidget {
             ),
             child: Column(
                 
+                
               children: [
                 Text(
                   AppLocalizations.of(context)!.my_donation,
