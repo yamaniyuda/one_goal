@@ -89,6 +89,7 @@ class AccountContent extends StatelessWidget {
                                         color: Colors.grey,
                                     ),
                                 ),
+                                onTap: () => context.push('/e-statement'),
                             ),
                             ListTile(
                                 leading: Iconify(

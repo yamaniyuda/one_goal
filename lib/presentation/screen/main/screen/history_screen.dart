@@ -13,8 +13,6 @@ class HistoryScreen extends StatelessWidget {
       'statusColor': Color(0xFFBDBDBD),
     },
     {
-<<<<<<< HEAD
-=======
       'judul': 'Donasi Pangan untuk Keluarga Kurang Mampu',
       'tanggal': '5 Januari 2025',
       'jumlah': 'Rp 170.000',
@@ -43,7 +41,6 @@ class HistoryScreen extends StatelessWidget {
       'statusColor': Color(0xFF5D7DCE),
     },
     {
->>>>>>> 0212f5eff9ebe8c745a051678ea767d42320f3fb
       'judul': 'Donasi Pangan untuk Keluarga Kurang Mampu',
       'tanggal': '5 Januari 2025',
       'jumlah': 'Rp 170.000',
@@ -85,139 +82,8 @@ class HistoryScreen extends StatelessWidget {
               color: Color(0xFF5D7DCE),
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
             ),
-<<<<<<< HEAD
-            padding: const EdgeInsets.only(top: 60, bottom: 20),
             child: Column(
               children: [
-                const Text(
-                  'Donasi Saya',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFFDF8F8),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.brown.shade200),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Patrick Kluivert',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          const Icon(Icons.account_balance_wallet_outlined,
-                              color: Colors.blue, size: 32),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'Total donasi',
-                                style: TextStyle(color: Colors.black54),
-                              ),
-                              Text(
-                                'Rp 12.530.000',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 12),
-                      const Divider(),
-                      const SizedBox(height: 6),
-                      const Text(
-                        'Sudah berdonasi hari ini? Yuk, klik dan bantu sekarang!',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black54,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-
-          // Kalender static
-          const SizedBox(height: 20),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF5F5F5),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              children: [
-                // Header bulan
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Icon(Icons.arrow_back_ios, size: 18),
-                    Row(
-                      children: [
-                        Text(
-                          'May',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(width: 4),
-                        Text(
-                          '2025',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    Icon(Icons.arrow_forward_ios, size: 18),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                // Hari
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    Text('Mo'), Text('Tu'), Text('We'), Text('Th'), Text('Fr'), Text('Sa'), Text('Su'),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                // Minggu 1
-                _calendarRow(['29', '30', '', '1', '2', '3', '4'], selectedDates: ['4']),
-                _calendarRow(['5', '6', '7', '8', '9', '10', '11'], selectedDates: ['9']),
-                _calendarRow(['12', '13', '14', '15', '16', '17', '18']),
-                _calendarRow(['19', '20', '21', '22', '23', '24', '25']),
-                _calendarRow(['26', '27', '28', '29', '30', '', '']),
-              ],
-            ),
-          ),
-
-          // Riwayat Donasi
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-=======
-            child: Column(
-              children: [
->>>>>>> 0212f5eff9ebe8c745a051678ea767d42320f3fb
                 Text(
                   AppLocalizations.of(context)!.my_donation,
                   style: TextStyle(
@@ -238,21 +104,11 @@ class HistoryScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-<<<<<<< HEAD
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          'assets/post_6.png',
-                          width: 60,
-                          height: 60,
-                          fit: BoxFit.cover,
-=======
                       const Text(
                         'Patrick Kluivert',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
->>>>>>> 0212f5eff9ebe8c745a051678ea767d42320f3fb
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -291,25 +147,7 @@ class HistoryScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-<<<<<<< HEAD
-                );
-              },
-            ),
-          ),
-          // Bottom Navbar
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Icon(Icons.home_outlined, size: 28),
-                Icon(Icons.search, size: 28),
-                Icon(Icons.add_circle_outline, size: 32),
-                Icon(Icons.article_outlined, size: 28, color: Color(0xFF5D7DCE)),
-                Icon(Icons.settings_outlined, size: 28),
-=======
                 )
->>>>>>> 0212f5eff9ebe8c745a051678ea767d42320f3fb
               ],
             ),
           ),
@@ -454,14 +292,9 @@ class HistoryScreen extends StatelessWidget {
         ],
       ),
     );
-<<<<<<< HEAD
-  }
-
-=======
   }           
 
   
->>>>>>> 0212f5eff9ebe8c745a051678ea767d42320f3fb
   Widget _calendarRow(List<String> days, {List<String> selectedDates = const []}) {
 	return Padding(
 		padding: const EdgeInsets.symmetric(vertical: 4),
@@ -492,11 +325,5 @@ class HistoryScreen extends StatelessWidget {
 		}).toList(),
 		),
 	);
-<<<<<<< HEAD
-	}
-
-}
-=======
 	}       
 }
->>>>>>> 0212f5eff9ebe8c745a051678ea767d42320f3fb

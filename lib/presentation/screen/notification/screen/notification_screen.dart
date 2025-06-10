@@ -23,14 +23,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 initialIndex: 0,
                 child: Scaffold(
                     appBar: AppBar(
-                        title: Text(
-                            'Notification',
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black,
-                            ),
-                        ),
+                        title: const Text(
+                            'Notification'
+                    ),
                         bottom: const TabBar(
                             tabs: <Widget>[
                                 Tab(text: 'All'),

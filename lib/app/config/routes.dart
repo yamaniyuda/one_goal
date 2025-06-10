@@ -7,6 +7,7 @@ import 'package:one_goal/presentation/screen/main/main.dart';
 import 'package:one_goal/presentation/screen/onboarding/screen/onboarding_screen.dart';
 import 'package:one_goal/presentation/screen/auth/auth.dart';
 import 'package:one_goal/presentation/screen/notification/notification.dart';
+import 'package:one_goal/presentation/screen/e_statement/e_statement.dart';
 
 
 final router = GoRouter(
@@ -41,5 +42,6 @@ final router = GoRouter(
         GoRoute(path: '/post/cerita-penggalangan', builder: (context, state) => CeritaPenggalanganScreen()),
         GoRoute(path: '/account/update-profile', builder: (context, state) => ProfileUpdateScreen()),
         GoRoute(path: '/notification', builder: (context, state) => NotificationScreen()),
+        GoRoute(path: '/e-statement', builder: (context, state) => const StatementScreen()),
     ],
 );
