@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../provider/auth_provider.dart';
@@ -67,7 +68,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           color: const Color(0xFFF6F6F6),
           child: Column(
             children: [
-              // Top decorative circle + logo
+              // Top decorative section
               Stack(
                 alignment: Alignment.center,
                 children: [
@@ -89,7 +90,6 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                       const SizedBox(width: 10),
                       CircleAvatar(
                         radius: 18.5,
-                        // ignore: deprecated_member_use
                         backgroundColor: Colors.white.withOpacity(0.5),
                       ),
                       const SizedBox(width: 10),
@@ -109,7 +109,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
 
               const SizedBox(height: 30),
 
-              // Form content under the circle
+              // Form section
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Column(
@@ -132,6 +132,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     const SizedBox(height: 16),
                     CustomTextField(label: 'Confirm Password', controller: _confirmPasswordController, isPassword: true),
                     const SizedBox(height: 20),
+
+                    // Terms agreement row
                     Row(
                       children: [
                         Checkbox(
@@ -142,19 +144,43 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                           ),
                           activeColor: const Color(0xFF567CBD),
                         ),
-                        const Expanded(
-                          child: Text(
-                            'I agree to the Terms and Conditions',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xFF567CBD),
-                              fontWeight: FontWeight.w700,
-                            ),
+                        Expanded(
+                          child: Wrap(
+                            children: [
+                              const Text(
+                                'I agree to the ',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Color(0xFF567CBD),
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) => const TermsDialog(),
+                                  );
+                                },
+                                child: const Text(
+                                  'Terms and Conditions',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Color(0xFF567CBD),
+                                    fontWeight: FontWeight.w700,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
+
                     const SizedBox(height: 20),
+
+                    // Sign up button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -176,7 +202,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 20),
+
                     Center(
                       child: GestureDetector(
                         onTap: () {
@@ -193,6 +221,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 30),
                   ],
                 ),
@@ -205,3 +234,107 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   }
 }
 
+// Enhanced Terms and Conditions Dialog
+class TermsDialog extends StatelessWidget {
+  const TermsDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog.fullscreen(
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF6F6F6),
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF567CBD),
+          elevation: 0,
+          title: Text('Terms and Conditions', 
+          style:  GoogleFonts.poppins(),
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                    child: Scrollbar(
+                      thumbVisibility: true,
+                      radius: const Radius.circular(8),
+                      child: SingleChildScrollView(
+                        child: Text(
+                          '''
+Welcome to OneGoal!
+
+These Terms and Conditions outline the rules and regulations for the use of our app.
+
+1. You must provide accurate and up-to-date information when creating an account.
+2. You agree not to use the app for any illegal or unauthorized purpose.
+3. We reserve the right to suspend or terminate your access if you violate these terms.
+4. Your data may be used according to our privacy policy.
+5. This agreement may be updated from time to time without prior notice.
+
+Please read the full document carefully before using our services.
+
+Thank you for choosing OneGoal!
+                          ''',
+                          style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            height: 1.6,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Divider(height: 1),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF567CBD),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: const Text(
+                        'Close',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

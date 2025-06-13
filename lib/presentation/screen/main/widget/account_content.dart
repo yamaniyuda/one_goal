@@ -113,6 +113,12 @@ class AccountContent extends StatelessWidget {
                                         color: Colors.grey,
                                     ),
                                 ),
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (_) => const ReferralPage()),
+                                  );
+                                },
                             ),
                             ListTile(
                                 leading: Iconify(
@@ -221,4 +227,51 @@ class AccountContent extends StatelessWidget {
             ],
         );
     }
+}
+
+
+class ReferralPage extends StatelessWidget {
+  const ReferralPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Map<String, String>> dummyProfiles = List.generate(
+      10,
+      (index) => {
+        "name": "User ${index + 1}",
+        "email": "user${index + 1}@example.com",
+      },
+    );
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Referral Profiles'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0.5,
+      ),
+      body: ListView.builder(
+        itemCount: dummyProfiles.length,
+        itemBuilder: (context, index) {
+          final profile = dummyProfiles[index];
+          return Column(
+            children: [
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.blue.shade100,
+                  child: Text(profile["name"]![5]), // first letter of name
+                ),
+                title: Text(
+                  profile["name"]!,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+                subtitle: Text(profile["email"]!),
+              ),
+              const Divider(height: 1),
+            ],
+          );
+        },
+      ),
+    );
+  }
 }
