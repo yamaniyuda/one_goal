@@ -6,6 +6,7 @@ import 'package:one_goal/app/config/routes.dart';
 import 'package:one_goal/app/config/theme.dart';
 import 'package:provider/provider.dart';
 import 'presentation/screen/auth/provider/auth_provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:one_goal/presentation/providers/localizations_provider.dart';
 
@@ -55,7 +56,33 @@ class MyApp extends StatelessWidget {
     Widget build(BuildContext context) {
         final localeProvider = Provider.of<LocalizationsProvider>(context);
         return MaterialApp.router(
-            theme: themeData,
+            theme: ThemeData(
+                primaryColor: Color(0xFF567CBD),
+                scaffoldBackgroundColor: Color(0xFFF6F6F6),
+                fontFamily: GoogleFonts.inter().fontFamily,
+                textTheme: GoogleFonts.poppinsTextTheme().apply(
+                    bodyColor: Color(0xFF313131),
+                    displayColor: Color(0xFF313131),
+                    decorationColor: Color(0xFF313131)
+                ),
+                appBarTheme: AppBarTheme(
+                    backgroundColor: Colors.white,
+                    titleTextStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                    ),
+                    centerTitle: true,
+                ),
+                snackBarTheme: SnackBarThemeData(
+                    elevation: 6,
+                    behavior: SnackBarBehavior.floating,
+                    contentTextStyle: GoogleFonts.poppins(
+                        fontSize: 14,
+                        color: Colors.white,
+                    ),
+                ),
+            ),
             debugShowCheckedModeBanner: false,
             routerConfig: router,
 			locale: localeProvider.locale,
