@@ -42,7 +42,6 @@ mixin Add {
                             CategoryList(),
                             const SizedBox(height: 20),
                             PostContentVideo(),
-                            const SizedBox(height: 30),
                             PostContent(),
                             const SizedBox(height: 100),
                         ],

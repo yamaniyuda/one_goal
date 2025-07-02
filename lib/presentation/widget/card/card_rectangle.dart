@@ -4,12 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 class CardRectangle extends StatelessWidget {
     final String image;
     final String title;
-
+    final double progress;
+    final String description;
+    final String amount;
     
     const CardRectangle({
         super.key,
         required this.image,
         required this.title,
+        required this.progress,
+        required this.description,
+        required this.amount,
     });
 
 
@@ -17,7 +22,9 @@ class CardRectangle extends StatelessWidget {
     Widget build(BuildContext context) {
         return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Card(     
+            child: Card(
+                elevation: 0,
+                color: Colors.transparent,
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +51,7 @@ class CardRectangle extends StatelessWidget {
                                         ),
                                     ),
                                     Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                        description,
                                         style: GoogleFonts.inter(
                                             fontSize: 14,
                                             color: Colors.grey,
@@ -54,7 +61,7 @@ class CardRectangle extends StatelessWidget {
                                     ),
                                     const SizedBox(height: 10),
                                     Text(
-                                        'Terkumpul Rp 1.000.000',
+                                        "Terkumpul Rp$amount",
                                         style: GoogleFonts.inter(
                                             fontSize: 14,
                                             color: Colors.grey,
@@ -69,7 +76,7 @@ class CardRectangle extends StatelessWidget {
                                                     height: 14,
                                                     width: double.infinity,
                                                     child: LinearProgressIndicator(
-                                                        value: 0.5,
+                                                        value: progress / 100,
                                                         backgroundColor: Colors.grey,
                                                         valueColor: AlwaysStoppedAnimation<Color>(
                                                             Theme.of(context).primaryColor,
@@ -78,7 +85,7 @@ class CardRectangle extends StatelessWidget {
                                                 ),
                                             ),
                                             Text(
-                                                '50%',
+                                                "${progress.toInt()}%",
                                                 style: GoogleFonts.inter(
                                                     fontSize: 8,
                                                     fontWeight: FontWeight.bold,
