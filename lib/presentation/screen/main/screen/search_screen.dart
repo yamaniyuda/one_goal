@@ -17,38 +17,38 @@ class _SearchScreenState extends State<SearchScreen> {
     Widget build(BuildContext context) {
         return ChangeNotifierProvider(
             create: (context) => SearchProvider(),
-                child: Consumer<SearchProvider>(
-                    builder: (context, searchProvider, child) {
-                        return Scaffold(
-                            appBar: AppBar(
-                                title: const Text('Explore'),
-                                backgroundColor: Colors.white,
-                                elevation: 1,
-                                centerTitle: true,
+            child: Consumer<SearchProvider>(
+                builder: (context, searchProvider, child) {
+                    return Scaffold(
+                        appBar: AppBar(
+                            title: const Text('Explore'),
+                            backgroundColor: Colors.white,
+                            elevation: 1,
+                            centerTitle: true,
+                        ),
+                        body: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: MasonryGridView.count(
+                                crossAxisCount: 3,
+                                mainAxisSpacing: 4,
+                                crossAxisSpacing: 4,
+                                itemCount: searchProvider.imageList.length,
+                                itemBuilder: (context, index) {
+                                    return Material(
+                                        borderRadius: BorderRadius.circular(6),
+                                        clipBehavior: Clip.antiAlias,
+                                        child: FadeInImage.memoryNetwork(
+                                            placeholder: kTransparentImage,
+                                            image: searchProvider.imageList[index],
+                                            fit: BoxFit.cover,
+                                        ),
+                                    );
+                                    },
                             ),
-                            body: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: MasonryGridView.count(
-                                    crossAxisCount: 3,
-                                    mainAxisSpacing: 4,
-                                    crossAxisSpacing: 4,
-                                    itemCount: searchProvider.imageList.length,
-                                    itemBuilder: (context, index) {
-                                        return Material(
-                                            borderRadius: BorderRadius.circular(6),
-                                            clipBehavior: Clip.antiAlias,
-                                            child: FadeInImage.memoryNetwork(
-                                                placeholder: kTransparentImage,
-                                                image: searchProvider.imageList[index],
-                                                fit: BoxFit.cover,
-                                            ),
-                                        );
-                                        },
-                                ),
-                            ),
-                        );
-                    }
-                )
-            );
-        }
+                        ),
+                    );
+                }
+            )
+        );
+    }
 }
