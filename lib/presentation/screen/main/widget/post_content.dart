@@ -10,74 +10,55 @@ class PostContent extends StatelessWidget {
         'description': 'Bantu saudara kita yang terdampak banjir di Jakarta Selatan.',
         'imageUrl': 'assets/post_3.png',
         'amount': 'Rp 1.000.000',
-        'progress': 0.5,
+        'progress': 30,
       },
       {
         'title': 'Peduli Pendidikan',
         'description': 'Dukung anak-anak kurang mampu agar bisa sekolah.',
         'imageUrl': 'assets/pendidikan.jpg',
         'amount': 'Rp 850.000',
-        'progress': 0.34,
+        'progress': 40,
       },
       {
         'title': 'Bantu UMKM Bangkit',
         'description': 'Bantu pelaku usaha kecil menengah untuk pulih pasca pandemi.',
         'imageUrl': 'assets/post_4.png',
         'amount': 'Rp 1.200.000',
-        'progress': 0.66,
+        'progress': 100,
       },
       {
         'title': 'Makanan untuk Dhuafa',
         'description': 'Sumbangkan makanan siap saji untuk kaum dhuafa.',
         'imageUrl': 'assets/post_2.png',
         'amount': 'Rp 400.000',
-        'progress': 0.2,
+        'progress': 90,
       },
       {
         'title': 'Bantu Korban Gempa',
         'description': 'Donasi untuk korban gempa di wilayah timur Indonesia.',
         'imageUrl': 'assets/post_6.png',
         'amount': 'Rp 2.000.000',
-        'progress': 0.75,
+        'progress': 10,
       },
     ];
 
 
     @override
     Widget build(BuildContext context) {
-        return Column(
-            children: [
-                const SizedBox(height: 20),
-                CardRectangle(
-                    image: 'assets/post_1.png',
-                    title: 'Post Title 1',
-                ),
-                const SizedBox(height: 20),
-                CardRectangle(
-                    image: 'assets/post_2.png',
-                    title: 'Post Title 1',
-                ),
-                const SizedBox(height: 20),
-                CardRectangle(
-                    image: 'assets/post_3.png',
-                    title: 'Post Title 1',
-                ),
-                const SizedBox(height: 20),
-                CardRectangle(
-                    image: 'assets/post_4.png',
-                    title: 'Post Title 1',
-                ),
-                const SizedBox(height: 20),
-                CardRectangle(
-                    image: 'assets/post_5.png',
-                    title: 'Post Title 1',
-                ),
-                const SizedBox(height: 20),
-                CardRectangle(
-                    image: 'assets/post_6.png',
-                    title: 'Post Title 1',
-                )
-            ],
+        return ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: donations.length,
+            itemBuilder: (context, index) {
+                final donation = donations[index];
+                return CardRectangle(
+                    title: donation['title'],
+                    progress: (donation['progress'] as num).toDouble(),
+                    image: donation['imageUrl'],
+                    description: donation['description'],
+                    amount: donation['amount'],
+                );
+            },
         );
     }
 }
