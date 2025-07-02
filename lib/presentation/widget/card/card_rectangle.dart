@@ -15,82 +15,84 @@ class CardRectangle extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return Container(
+        return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                    ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                            image,
-                            width: 120,
-                            height: 120,
-                            fit: BoxFit.cover,
+            child: Card(     
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                                image,
+                                width: 120,
+                                height: 120,
+                                fit: BoxFit.cover,
+                            ),
                         ),
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                                Text(
-                                    title,
-                                    style: GoogleFonts.inter(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
+                        const SizedBox(width: 20),
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                    Text(
+                                        title,
+                                        style: GoogleFonts.inter(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                        ),
                                     ),
-                                ),
-                                Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                                    style: GoogleFonts.inter(
-                                        fontSize: 14,
-                                        color: Colors.grey,
+                                    Text(
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                                        style: GoogleFonts.inter(
+                                            fontSize: 14,
+                                            color: Colors.grey,
+                                        ),
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                     ),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                ),
-                                const SizedBox(height: 10),
-                                Text(
-                                    'Terkumpul Rp 1.000.000',
-                                    style: GoogleFonts.inter(
-                                        fontSize: 14,
-                                        color: Colors.grey,
+                                    const SizedBox(height: 10),
+                                    Text(
+                                        'Terkumpul Rp 1.000.000',
+                                        style: GoogleFonts.inter(
+                                            fontSize: 14,
+                                            color: Colors.grey,
+                                        ),
                                     ),
-                                ),
-                                Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                        ClipRRect(
-                                            borderRadius: BorderRadius.circular(100),
-                                            child: SizedBox(
-                                                height: 14,
-                                                width: double.infinity,
-                                                child: LinearProgressIndicator(
-                                                    value: 0.5,
-                                                    backgroundColor: Colors.grey,
-                                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                                        Theme.of(context).primaryColor,
+                                    Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                            ClipRRect(
+                                                borderRadius: BorderRadius.circular(100),
+                                                child: SizedBox(
+                                                    height: 14,
+                                                    width: double.infinity,
+                                                    child: LinearProgressIndicator(
+                                                        value: 0.5,
+                                                        backgroundColor: Colors.grey,
+                                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                                            Theme.of(context).primaryColor,
+                                                        ),
                                                     ),
                                                 ),
                                             ),
-                                        ),
-                                        Text(
-                                            '50%',
-                                            style: GoogleFonts.inter(
-                                                fontSize: 8,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
+                                            Text(
+                                                '50%',
+                                                style: GoogleFonts.inter(
+                                                    fontSize: 8,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white,
+                                                ),
                                             ),
-                                        ),
-                                    ],
-                                ),
-                            ],
-                        ),
-                    )
-                ],
-            ),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                        )
+                    ],
+                ),
+            )
         );
     }
 }
