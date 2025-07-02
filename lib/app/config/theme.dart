@@ -22,10 +22,10 @@ final ThemeData themeData = ThemeData(
     ),
     snackBarTheme: SnackBarThemeData(
         elevation: 6,
+        behavior: SnackBarBehavior.floating,
         contentTextStyle: GoogleFonts.poppins(
             fontSize: 14,
             color: Colors.white,
         ),
     ),
 );
-
