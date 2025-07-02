@@ -67,6 +67,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+<<<<<<< HEAD
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(bottom: 24),
         child: Column(
@@ -79,6 +80,93 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     BorderRadius.vertical(bottom: Radius.circular(30)),
               ),
               padding: const EdgeInsets.only(bottom: 24),
+=======
+      body: Column(
+        children: [
+          // Header dengan latar biru dan info donasi
+          Container(
+            decoration: const BoxDecoration(
+              color: Color(0xFF5D7DCE),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+            ),
+            child: Column(
+                
+                
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.my_donation,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFDF8F8),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.brown.shade200),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Patrick Kluivert',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.account_balance_wallet_outlined,
+                              color: Colors.blue, size: 32),
+                          const SizedBox(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                'Total donasi',
+                                style: TextStyle(color: Colors.black54),
+                              ),
+                              Text(
+                                'Rp 12.530.000',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      const Divider(),
+                      const SizedBox(height: 6),
+                      const Text(
+                        'Sudah berdonasi hari ini? Yuk, klik dan bantu sekarang!',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+
+
+          // Kalender static
+            const SizedBox(height: 20),
+            Expanded(
+            child: SingleChildScrollView(
+>>>>>>> 07c86e19c41237067d42e3e0817acc11f7b9924a
               child: Column(
                 children: [
                   const SizedBox(height: 40),

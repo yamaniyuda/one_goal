@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-ThemeData themeData = ThemeData(
+final ThemeData themeData = ThemeData(
     primaryColor: Color(0xFF567CBD),
     scaffoldBackgroundColor: Color(0xFFF6F6F6),
     fontFamily: GoogleFonts.inter().fontFamily,
@@ -19,5 +19,13 @@ ThemeData themeData = ThemeData(
             color: Colors.black,
         ),
         centerTitle: true,
+    ),
+    snackBarTheme: SnackBarThemeData(
+        elevation: 6,
+        behavior: SnackBarBehavior.floating,
+        contentTextStyle: GoogleFonts.poppins(
+            fontSize: 14,
+            color: Colors.white,
+        ),
     ),
 );

@@ -17,12 +17,14 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
     final jobController = TextEditingController();
     String selectedGender = 'Male';
     String selectedStatus = 'Donatur';
+    DateTime birthDate = DateTime.now();
 
     // Toggle flags for edit mode
     bool editPhone = false;
     bool editJob = false;
     bool editGender = false;
     bool editStatus = false;
+    bool editBirthDate = false;
 
     @override
     void initState() {
@@ -213,6 +215,37 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
                                 onChanged: (value) => setState(() => selectedStatus = value!),
                             ),
                             displayText: selectedStatus,
+                        ),
+                        _buildEditableCard(
+                            label: 'Birth Date',
+                            icon: Icons.calendar_today,
+                            iconColor: Colors.orange,
+                            isEditing: editBirthDate,
+                            onTapEdit: () => setState(() => editBirthDate = !editBirthDate),
+                            displayText: birthDate.toLocal().toString().split(' ')[0],
+                            child: TextField(
+                                controller: TextEditingController(
+                                    text: birthDate.toLocal().toString().split(' ')[0],
+                                ),
+                                readOnly: true,
+                                onTap: () async {
+                                    DateTime? pickedDate = await showDatePicker(
+                                        context: context,
+                                        initialDate: DateTime.now(),
+                                        firstDate: DateTime(1900),
+                                        lastDate: DateTime.now(),
+                                    );
+                                    if (pickedDate != null) {
+                                        setState(() {
+                                            birthDate = pickedDate;
+                                        });
+                                    }
+                                },
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                ),
+                            ),
                         ),
                         const SizedBox(height: 32),
 
