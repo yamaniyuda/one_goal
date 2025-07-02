@@ -23,7 +23,6 @@ class SearchProvider with ChangeNotifier {
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtYTti4IMrqgwJ59IreucZYKQUQLoJGaUbjesSjyIoDwLF4wU068Lxy7r19kXfDZb1XY0&usqp=CAU',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq9GL5Hegmni9U17EQwFL9ZHd_9KOn7MWUmw&s',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZfT11LWw4fn1PvS9ZZjVVGac4oHlh7rLVog&s',
-        'https://media.defense.gov/2019/Apr/15/2002116505/825/780/0/110404-M-XX000-025.JPG',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEqUlMzkhMpRXvvOjT7PINYaLn2CzHXclq9g&s',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxXasqqDB3LFNHMOSf7N3Pei28Fs55VL1asReYLITm7whO7aRsfQvEQgFDavOlNL1gXew&usqp=CAU',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_oxjhOh7G8v0Ij97x2d_U2erRawkkpyzqzvilLm_rOM_eVI0SuaUQQL6etnf4Q1MWhdE&usqp=CAU'
