@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:one_goal/app/config/const.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider with ChangeNotifier {
   bool _rememberMe = false;
@@ -34,8 +36,25 @@ class AuthProvider with ChangeNotifier {
         return true;
       }
     }
+    if (_rememberMe) {
+      SharedPreferences.getInstance().then((prefs) {
+        prefs.setBool(LOGIN_PERSISTENCE_KEY, true);
+      });
+    }
     return false;
   }
+
+
+  void logout() {
+    _currentUsername = '';
+    _currentPassword = '';
+    _rememberMe = false;
+    SharedPreferences.getInstance().then((prefs) {
+      prefs.remove(LOGIN_PERSISTENCE_KEY);
+    });
+    notifyListeners();
+  }
+
 
   void signUp({
     required String username,
@@ -46,6 +65,11 @@ class AuthProvider with ChangeNotifier {
       'email': email,
       'password': password,
     };
+    if (_rememberMe) {
+      SharedPreferences.getInstance().then((prefs) {
+        prefs.setBool(LOGIN_PERSISTENCE_KEY, true);
+      });
+    }
     notifyListeners();
   }
 

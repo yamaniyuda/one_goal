@@ -72,7 +72,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           email: email,
           password: password,
         );
-
+    
     context.replace('/home');
   }
 

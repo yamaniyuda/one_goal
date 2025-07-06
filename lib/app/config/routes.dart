@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:one_goal/app/config/const.dart';
 import 'package:one_goal/presentation/screen/change_language/change_language.dart';
 import 'package:one_goal/presentation/screen/post/post.dart';
 import 'package:one_goal/presentation/screen/splash/screen/splash_screen.dart';
@@ -8,12 +10,12 @@ import 'package:one_goal/presentation/screen/onboarding/screen/onboarding_screen
 import 'package:one_goal/presentation/screen/auth/auth.dart';
 import 'package:one_goal/presentation/screen/notification/notification.dart';
 import 'package:one_goal/presentation/screen/e_statement/e_statement.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 final router = GoRouter(
     initialLocation: '/splash', // Halaman pertama yang akan muncul
     routes: [
-        
         GoRoute(path: '/SignIn', builder: (context, state) => const InScreen()),
         GoRoute(path: '/SignUp', builder: (context, state) => const UpScreen()),
         
@@ -44,4 +46,18 @@ final router = GoRouter(
         GoRoute(path: '/notification', builder: (context, state) => NotificationScreen()),
         GoRoute(path: '/e-statement', builder: (context, state) => const StatementScreen()),
     ],
+    redirect: (BuildContext context, GoRouterState state) async {
+        final prefs = await SharedPreferences.getInstance();
+        final isLoggedIn = prefs.getBool(LOGIN_PERSISTENCE_KEY) ?? false;
+        
+        if (isLoggedIn && state.matchedLocation != '/home') {
+            return '/home';
+        }
+
+        if (!isLoggedIn && state.matchedLocation != '/SignIn' && state.matchedLocation != '/SignUp' && state.matchedLocation != '/splash' && state.matchedLocation != '/onboarding') {
+            return '/SignIn';
+        }
+
+        return null;
+    }
 );
