@@ -34,16 +34,18 @@ class _SearchScreenState extends State<SearchScreen> {
                                 crossAxisSpacing: 4,
                                 itemCount: searchProvider.imageList.length,
                                 itemBuilder: (context, index) {
-                                    return Material(
-                                        borderRadius: BorderRadius.circular(6),
-                                        clipBehavior: Clip.antiAlias,
-                                        child: FadeInImage.memoryNetwork(
-                                            placeholder: kTransparentImage,
-                                            image: searchProvider.imageList[index],
-                                            fit: BoxFit.cover,
+                                    return Card(
+                                        child: Material(
+                                            borderRadius: BorderRadius.circular(6),
+                                            clipBehavior: Clip.antiAlias,
+                                            child: FadeInImage.memoryNetwork(
+                                                placeholder: kTransparentImage,
+                                                image: searchProvider.imageList[index],
+                                                fit: BoxFit.cover,
+                                            ),
                                         ),
                                     );
-                                    },
+                                },
                             ),
                         ),
                     );
