@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:one_goal/presentation/widget/card/card_rectangle.dart';
+import 'package:one_goal/presentation/screen/post/screen/galang_dana_screen.dart';
 
 class PostContent extends StatelessWidget {
     PostContent({super.key});
 
     final List<Map<String, dynamic>> donations = [
       {
-        'title': 'Bantuan Banjir Jakarta',
+        'title': 'Bantuan Banjir Jakarta1',
         'description': 'Bantu saudara kita yang terdampak banjir di Jakarta Selatan.',
         'imageUrl': 'assets/post_3.png',
         'amount': 'Rp 1.000.000',
@@ -57,6 +58,17 @@ class PostContent extends StatelessWidget {
                     image: donation['imageUrl'],
                     description: donation['description'],
                     amount: donation['amount'],
+                    onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => GalangDanaScreen(
+                                    imageUrl: donation['imageUrl'],
+                                    title: donation['title'],
+                                ),
+                            ),
+                        );
+                    },
                 );
             },
         );

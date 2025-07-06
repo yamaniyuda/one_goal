@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_goal/presentation/screen/post/screen/galang_dana_screen.dart';
 
 class DonationCard extends StatelessWidget {
   final String imageUrl;
@@ -136,17 +137,16 @@ class DonationList extends StatelessWidget {
             imageUrl: data['imageUrl'],
             collectedAmount: data['amount'],
             progress: data['progress'],
-            onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (_) => GalangDanaPage(
-              //       imageUrl: data['imageUrl'],
-              //       title: data['title'],
-                    
-              //     ),
-              //   ),
-              // );
+             onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => GalangDanaScreen(
+                      imageUrl:  data['imageUrl'],
+                      title: data['title'],
+                    ),
+                  ),
+                );
             },
           );
         }).toList(),

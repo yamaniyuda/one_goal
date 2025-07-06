@@ -7,6 +7,7 @@ class CardRectangle extends StatelessWidget {
     final double progress;
     final String description;
     final String amount;
+    final VoidCallback? onTap;
     
     const CardRectangle({
         super.key,
@@ -15,6 +16,7 @@ class CardRectangle extends StatelessWidget {
         required this.progress,
         required this.description,
         required this.amount,
+        this.onTap,
     });
 
 
@@ -22,7 +24,9 @@ class CardRectangle extends StatelessWidget {
     Widget build(BuildContext context) {
         return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Card(
+            child: InkWell(
+              onTap: onTap,
+              child: Card(
                 elevation: 0,
                 color: Colors.transparent,
                 child: Row(
@@ -99,7 +103,8 @@ class CardRectangle extends StatelessWidget {
                         )
                     ],
                 ),
-            )
+              )
+            ),
         );
     }
 }

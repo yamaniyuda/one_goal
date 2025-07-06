@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:go_router/go_router.dart';
+import 'package:one_goal/presentation/screen/main/screen/home_screen.dart';
 
 class KonfirmasiPembayaranScreen extends StatelessWidget {
   final int nominal;
@@ -87,7 +89,9 @@ class KonfirmasiPembayaranScreen extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Arahkan ke halaman donasi lagi jika ingin
+                },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.pink,
                   foregroundColor: Colors.white,
@@ -104,6 +108,36 @@ class KonfirmasiPembayaranScreen extends StatelessWidget {
           const SizedBox(height: 8),
           _buildRow('Donasi SalingJaga Dhuafa (opsional)', 'Rp0'),
           const Divider(height: 32),
+
+          // 🔻 Tombol Tutup
+          const SizedBox(height: 20),
+          Center(
+            child: ElevatedButton.icon(
+              icon: const Icon(Icons.check),
+              label: const Text('Tutup', style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                  minimumSize: const Size(double.infinity, 48),
+              ),
+            
+              onPressed: () {
+                // Tampilkan SnackBar
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Pembayaran Berhasil!')),
+                );
+
+                //  Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const HomeScreen()),
+                // );
+              },
+            ),
+          ),
+          const SizedBox(height: 32),
         ],
       ),
     );

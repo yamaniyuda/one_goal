@@ -511,10 +511,7 @@ Widget _buildPaymentItem(Map<String, dynamic> item) {
           Expanded(
             child: Text(item['name'], style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
           ),
-          Text(
-            'Rp ${item['fee'].toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]}.')}',
-            style: const TextStyle(fontSize: 13, color: Colors.grey),
-          ),
+          
         ],
       ),
     ),

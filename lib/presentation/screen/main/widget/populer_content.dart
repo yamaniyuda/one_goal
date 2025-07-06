@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_goal/presentation/widget/card/card_bg_image.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:one_goal/presentation/screen/post/screen/galang_dana_screen.dart';
 
 class PopulerContent extends StatefulWidget {
     const PopulerContent({super.key});
@@ -87,13 +88,19 @@ class _PopulerContentState extends State<PopulerContent> {
                             itemBuilder: (context, index) {
                                 final item = popularItems[index];
                                 return GestureDetector(
-                                    onTap: () => context.pushNamed(
-                                        '/post/galang-dana',
-                                        pathParameters: {
-                                        'image': item['imagePath'],
-                                        'title': item['title'],
-                                        },
-                                    ),
+                                    
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) => GalangDanaScreen(
+                                            imageUrl: item['imagePath'],
+                                            title: item['title'],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    
                                     child: Padding(
                                         padding: const EdgeInsets.symmetric(horizontal: 16),
                                         child: Column(
