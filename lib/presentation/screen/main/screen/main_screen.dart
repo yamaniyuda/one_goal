@@ -3,6 +3,35 @@ import 'package:one_goal/presentation/screen/main/main.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/icon_park_twotone.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('id_ID', null);
+}
+
+
+class MonthFormatter {
+  static String getMonthName(int month, {String locale = 'id_ID'}) {
+    final date = DateTime(2000, month);
+    return DateFormat('MMMM', locale).format(date);
+  }
+
+  static List<String> getAllMonths({String locale = 'id_ID'}) {
+    return List.generate(12, (index) => getMonthName(index + 1, locale: locale));
+  }
+
+  static String formatMonthYear(int month, int year, {String locale = 'id_ID'}) {
+    final date = DateTime(year, month);
+    return DateFormat('MMMM yyyy', locale).format(date);
+  }
+}
+
+
+
 
 
 class MainScreen extends StatefulWidget {

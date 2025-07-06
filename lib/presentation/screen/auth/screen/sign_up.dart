@@ -19,11 +19,39 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _dobController = TextEditingController();
 
   void toggleCheckbox(bool? value) {
     setState(() {
       isAgreed = value ?? false;
     });
+  }
+
+  Future<void> _pickDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime(2000),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: const ColorScheme.light(
+              primary: Color(0xFF567CBD),
+              onPrimary: Colors.white,
+              onSurface: Colors.black,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (picked != null) {
+      setState(() {
+        _dobController.text = "${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}";
+      });
+    }
   }
 
   void _submitSignUp(BuildContext context) {
@@ -44,7 +72,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           email: email,
           password: password,
         );
-
+    
     context.replace('/home');
   }
 
@@ -54,6 +82,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
+    _dobController.dispose(); // <-- Added
     super.dispose();
   }
 
@@ -68,7 +97,6 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
           color: const Color(0xFFF6F6F6),
           child: Column(
             children: [
-              // Top decorative section
               Stack(
                 alignment: Alignment.center,
                 children: [
@@ -106,10 +134,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   ),
                 ],
               ),
-
               const SizedBox(height: 30),
-
-              // Form section
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Column(
@@ -131,9 +156,22 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                     CustomTextField(label: 'Password', controller: _passwordController, isPassword: true),
                     const SizedBox(height: 16),
                     CustomTextField(label: 'Confirm Password', controller: _confirmPasswordController, isPassword: true),
+                    const SizedBox(height: 16),
+                    
+                    GestureDetector(
+                      onTap: () => _pickDate(context),
+                      child: AbsorbPointer(
+                        child: TextField(
+                          controller: _dobController,
+                          decoration: const InputDecoration(
+                            labelText: 'Date of Birth',
+                            border: OutlineInputBorder(),
+                            suffixIcon: Icon(Icons.calendar_today),
+                          ),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 20),
-
-                    // Terms agreement row
                     Row(
                       children: [
                         Checkbox(
@@ -177,10 +215,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ],
                     ),
-
                     const SizedBox(height: 20),
-
-                    // Sign up button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -202,9 +237,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 20),
-
                     Center(
                       child: GestureDetector(
                         onTap: () {
@@ -221,7 +254,6 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 30),
                   ],
                 ),
@@ -234,7 +266,6 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
   }
 }
 
-// Enhanced Terms and Conditions Dialog
 class TermsDialog extends StatelessWidget {
   const TermsDialog({super.key});
 
@@ -246,9 +277,7 @@ class TermsDialog extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: const Color(0xFF567CBD),
           elevation: 0,
-          title: Text('Terms and Conditions', 
-          style:  GoogleFonts.poppins(),
-          ),
+          title: Text('Terms and Conditions', style: GoogleFonts.poppins()),
           leading: IconButton(
             icon: const Icon(Icons.close),
             onPressed: () => Navigator.of(context).pop(),
